@@ -1,0 +1,79 @@
+.\obj\about     +
+.\obj\display   +
+.\obj\export    +
+.\obj\file      +
+.\obj\filters   +
+.\obj\format    +
+.\obj\imgprep   +
+.\obj\import    +
+.\obj\init      +
+.\obj\logo      +
+.\obj\open      +
+.\obj\paint     +
+.\obj\palette   +
+.\obj\oprsetup  +
+.\obj\quantize  +
+.\obj\reduce    +
+.\obj\save      +
+.\obj\procspec  +
+.\obj\squash    +
+.\obj\state     + 
+.\obj\unsquash  +
+.\obj\prev      +
+.\obj\info      +
+.\obj\iputils   +
+.\obj\domerge   +
+.\obj\mergedlg  +
+.\obj\pref      +
+.\obj\settings  +
+.\obj\copyclip  +
+.\obj\menu      +
+.\obj\doprint   +
+.\obj\copyp   +
+.\files\obj\cpirdh    +
+.\files\obj\cpircd    +
+.\files\obj\dibrcd    +
+.\files\obj\dibrdh    +
+.\files\obj\enc_pcx   +
+.\files\obj\epscolor  +
+.\files\obj\epsmono   +
+.\files\obj\epsgray   +
+.\files\obj\gifrcd    +
+.\files\obj\gifrdh    +
+.\files\obj\pcx2lin   +
+.\files\obj\pcxrcd    +
+.\files\obj\pcxrdh    +
+.\files\obj\tg24to16  +
+.\files\obj\tgarcd    +
+.\files\obj\tgardh    +
+.\files\obj\tifrcd    +
+.\files\obj\tifrdh    +
+.\files\obj\dvardh    +
+.\files\obj\dvarcd    +
+.\files\obj\cpiih     +
+.\files\obj\dibih     +
+.\files\obj\gifih     +
+.\files\obj\tgaih     +
+.\files\obj\tifih     +
+.\files\obj\pcxih     +
+.\files\obj\epsih     +
+.\files\obj\wmfih     +
+.\files\obj\dvaih     +
+.\files\obj\testfmts  
+imgprep.exe
+nul
+win87em         +
+mlibcew         +
+libw            + 
+filters         +
+oic             +
+dibio           +
+metafile        +
+clipimg         +
+print           +
+prometer        +
+cpidlls         
+imgprep.def
+
+ 
+

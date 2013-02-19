@@ -1,0 +1,39 @@
+  Feature List for next ImagePrep
+
+
+Batch Processing Capabilities
+
+Save Settings in templates
+
+Local Editing
+
+MDI  (So an OPR creates a new window, graysum a new window, etc...)
+
+
+LZW, Mac, Vector import, JPEG
+
+
+DDE/OLE
+
+
+DVA
+
+
+
+Differentiation / Speed
+
+Other Important Features:  Conversion & Compression
+
+
+
+Image Mapping:  Special Effects
+
+
+Perspectives / Transforms
+
+
+Vector Assist Editing (Do what is done to vectors by A&L, etc to bitmaps)
+
+
+Can' em
+

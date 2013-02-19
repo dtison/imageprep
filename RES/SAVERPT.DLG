@@ -1,0 +1,33 @@
+#include "windows.h"
+#include "resource.h"
+SAVERPT DIALOG LOADONCALL MOVEABLE DISCARDABLE 50, 57, 257, 95
+CAPTION "Saving File "
+FONT 8, "Helv" 
+STYLE  WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | DS_SETFONT | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "Filename:", 100, "static", SS_LEFT | WS_CHILD, 5, 6, 46, 9
+    CONTROL "", 101, "static", SS_LEFT | WS_CHILD, 47, 6, 206, 9
+    CONTROL "Type:", 102, "static", SS_LEFT | WS_CHILD, 8, 26, 40, 8
+    CONTROL "Class:", 103, "static", SS_LEFT | WS_CHILD, 8, 38, 40, 8
+    CONTROL "Width:", 104, "static", SS_LEFT | WS_CHILD, 146, 27, 35, 9
+    CONTROL "Height:", 105, "static", SS_LEFT | WS_CHILD, 146, 38, 33, 9
+    CONTROL "", 106, "static", SS_BLACKRECT | WS_CHILD, 6, 19, 242, 2
+    CONTROL "Size:", 107, "static", SS_LEFT | WS_CHILD, 146, 48, 33, 7
+    CONTROL "Palette:", 108, "static", SS_LEFT | WS_CHILD, 8, 49, 32, 8
+    CONTROL "", 110, "static", SS_BLACKRECT | WS_CHILD, 6, 64, 242, 2
+    CONTROL "", 115, "static", SS_LEFT | WS_CHILD, 50, 26, 87, 9
+    CONTROL "", 116, "static", SS_LEFT | WS_CHILD, 50, 37, 87, 9
+    CONTROL "", 117, "static", SS_LEFT | WS_CHILD, 50, 49, 87, 9
+    CONTROL "", 118, "static", SS_LEFT | WS_CHILD, 182, 27, 66, 8
+    CONTROL "", SR_HEIGHT, "static", SS_LEFT | WS_CHILD, 182, 38, 66, 8
+    CONTROL "", SR_SIZE, "static", SS_LEFT | WS_CHILD, 182, 48, 66, 8
+    CONTROL "", 121, "static", SS_LEFT | WS_CHILD, 50, 26, 87, 9
+    CONTROL "", SR_FILECLASS, "static", SS_LEFT | WS_CHILD, 50, 37, 87, 9
+    CONTROL "", SR_FILETYPE, "static", SS_LEFT | WS_CHILD, 50, 26, 87, 9
+    CONTROL "", SR_PAL, "static", SS_LEFT | WS_CHILD, 50, 49, 87, 9
+    CONTROL "", SR_WIDTH, "static", SS_LEFT | WS_CHILD, 182, 27, 66, 8
+    CONTROL "&Ok", IDOK, "button", BS_DEFPUSHBUTTON | WS_TABSTOP | WS_CHILD, 42, 73, 81, 15
+    CONTROL "&Cancel", IDCANCEL, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 137, 73, 81, 15
+END
+
+

@@ -1,0 +1,9 @@
+                RegisterCapApp          @2
+                UnRegisterCapApp        @3
+                SetCaptureOn            @12
+                SetCaptureFileType      @13
+                SetCaptureType          @14
+                ToggleHide              @36
+                ToggleCapToClipboard    @37
+
+

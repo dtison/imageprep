@@ -1,0 +1,25 @@
+.\obj\libentry     + 
+.\obj\libmain      + 
+.\obj\error        + 
+.\obj\toolutil     + 
+.\obj\cpifile      + 
+.\obj\sharpen      + 
+.\obj\sharpdlg     + 
+.\obj\smooth       + 
+.\obj\smoothdl     + 
+.\obj\edge         + 
+.\obj\edgedlg      + 
+.\obj\rotate       + 
+.\obj\scale        + 
+.\obj\scaledlg     + 
+.\obj\flip         + 
+.\obj\mirror         
+TOOLS.dll            
+nul                    
+win87em.lib          + 
+mdllcew.lib          + 
+cpi.lib              + 
+cpifmt.lib           + 
+prometer.lib         + 
+libw.lib               
+tools.def              

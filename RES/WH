@@ -1,0 +1,7 @@
+#ifndef WIN
+#include <windows.h>
+#endif
+#include <mergedlg.h>
+#include "resource.h"
+
+

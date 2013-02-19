@@ -1,0 +1,22 @@
+#define IDD_SOURCE            101
+#define IDD_DEST              102
+#define IDD_SOURCE_PATH       103
+#define IDD_DEST_PATH         104
+#define IDD_TRUNCATION        120
+#define IDD_AVERAGING         121
+#define IDD_AVGINTERPOLATE    122
+#define IDD_SCALEPERCENTAGE   123
+#define IDD_TARGETSIZE        124
+#define IDD_XPERCENTSCROLL    125
+#define IDD_XPERCENT          126
+#define IDD_YPERCENTSCROLL    127
+#define IDD_YPERCENT          128
+#define IDD_TARGET_XSCROLL    129
+#define IDD_TARGET_X          130
+#define IDD_TARGET_YSCROLL    131
+#define IDD_TARGET_Y          132
+#define IDD_MAINTAIN_ASPECT   133
+#define IDD_PROCESS           134
+#define IDD_UNITS             135
+#define IDD_RESOLUTION        136
+

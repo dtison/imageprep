@@ -1,0 +1,70 @@
+Name            Date    Change
+----            ----    ------
+
+
+D. Ison         5-8-91  --- 1st Release ---   Includes tools spec'd for     
+                        Version 4.0 of Imageprep + bug fixes.
+
+D. Ison         5-13-91 Fixed minor bug in scaling
+       
+D. Ison         5-16-91 --- Release 
+
+D. Ison         5-30-91 --- Put in stuff related to adding "UNDO" capability
+                            to ImagePrep.  Esp related to return codes, etc.,   
+                            for temp file management, cancel handling.
+
+                6-04-91 --- Release 003
+
+D. Ison         6-04-91 --- Fixed some bugs that occurred when you canceled
+                            out of dialogs.  Return codes again.
+
+                6-04-91 --- Release 004
+
+D. Ison         6-04-91 --- Fixed yet another bug.  Canceling edge enhance 
+                            resulted in System Error.
+
+                6-04-91 --- Release 005
+
+D. Ison         6-04-91 --- Fixed bugs that left some temp files.
+
+                6-06-91 --- Release 005
+
+                6-06-91 --- Release 006
+
+D. Ison         6-04-91 --- Bug fixes as documented.
+
+                6-07-91 --- Release 007
+
+D. Ison         6-07-91 --- Changed to explicit imports for prometer
+
+                6-07-91 --- Release 008
+
+D. Ison         6-10-91 --- Fixed bugs as documented.
+
+                6-10-91 --- Release 009
+
+D. Ison         6-19-91 --- Fixed bugs as documented.
+
+                6-20-91 --- Release 010
+
+D. Ison         6-21-91 --- Added 1 bit mono scanner file read to CPIFILE.C
+
+                6-21-91 --- Release 011
+
+D. Ison         6-26-91 --- Fixed bugs as documented.
+
+                6-26-91 --- Release 012
+
+D. Ison         7-09-91 --- Fixed bugs as documented.
+
+                7-09-91 --- Release 013
+
+D. Ison         7-18-91 --- Added level to remove noise.  
+                            Added inches, cm, mm, picas to scale dialog.
+
+                7-18-91 --- Release 014
+
+D. Ison                     Minor changes to resources.
+
+                0-07-91 --- Release 015
+

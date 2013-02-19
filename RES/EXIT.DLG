@@ -1,0 +1,14 @@
+#include "windows.h"
+#include "resource.h"
+EXITDLG DIALOG LOADONCALL MOVEABLE DISCARDABLE 113, 55, 126, 60
+CAPTION "Exit ImagePrep"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_POPUP
+BEGIN
+    CONTROL "Ok", 1, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 14, 40, 40, 14
+    CONTROL "Cancel", 2, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 66, 40, 40, 14
+    CONTROL "Save Settings", IDD_SAVESETTINGS, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 16, 24, 66, 12
+    CONTROL "Do you want to close IP?", IDD_CLOSEAPP, "static", SS_LEFT | WS_CHILD, 6, 12, 119, 8
+    CONTROL "                                ", IDD_CAUTION, "static", SS_LEFT | WS_CHILD, 6, 2, 104, 8
+END
+
+

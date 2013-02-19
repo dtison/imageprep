@@ -1,0 +1,174 @@
+
+
+#      Makefile for creating tools.dll 
+#
+#      Last Modified:      02-21-90    D. Ison
+
+
+CPID=   $(CPIINC)
+INCD=   .
+
+!IFNDEF GO   
+OBJD=   .\obj
+PROG=   VDD
+!ELSE
+OBJD=   .\obj  
+PROG=   VDD
+!ENDIF
+
+
+
+#      Flags to use with the C compiler and linker during the
+#      development of tools.dll.
+
+
+!IFDEF GO    
+
+CFLAGS=  -c -W3 -Alnw -G2sw -Oas -Zpe -nologo -Fo$(OBJD)\ -I $(CPID)
+CFLAGSO= -c -W3 -Alnw -G2sw -Ocilgt -Zpe -nologo -Fo$(OBJD)\ -I $(CPID)
+LFLAGS=  link /NOE/NOD/PADCODE:256/AL:16 @$(PROG).lnk $(PROG).dll
+AFLAGSD=
+
+!ELSE
+
+
+LFLAGS= /CO/NOE/NOD/PADCODE:256/AL:16
+CFLAGS=  -c -W3 -Alnw -G2sw -Od -Zpe -Zi -nologo -Fo$(OBJD)\ -I $(CPID)
+CFLAGSO= -c -W3 -Alnw -G2sw -Od -Zpe -Zi -nologo -Fo$(OBJD)\ -I $(CPID)
+LFLAGSD= /CO /INC /NOE /NOD /PADCODE:512 /PADDATA:64 /AL:16
+LFLAGS= ilink /E "link $(LFLAGSD) @$(PROG).lnk" $(PROG).dll
+AFLAGSD= -Zi
+
+!ENDIF
+
+
+
+#      Object file list.
+
+
+OBJ1=   $(OBJD)\libentry.obj    $(OBJD)\libmain.obj  \
+        $(OBJD)\cpifile.obj     $(OBJD)\error.obj    \
+        $(OBJD)\toolutil.obj                         \
+        $(OBJD)\sharpen.obj     $(OBJD)\sharpdlg.obj \
+        $(OBJD)\smooth.obj      $(OBJD)\smoothdl.obj \
+        $(OBJD)\edge.obj        $(OBJD)\edgedlg.obj  \
+        $(OBJD)\rotate.obj                           \
+        $(OBJD)\scale.obj       $(OBJD)\scaledlg.obj \
+        $(OBJD)\flip.obj                             \
+        $(OBJD)\mirror.obj
+
+
+
+#      Production rule for building library.
+
+
+
+
+tools.dll:     tools.def tools.lnk tools.res $(OBJ1)
+#   ilink /E "link $(LFLAGSD) @$(PROG).lnk" $(PROG).dll
+    $(LFLAGS)
+    rc $(PROG).res $(PROG).dll 
+    implib $(PROG).lib $(PROG).def
+    xcopy tools.dll .. > nul
+    copy tools.lib $(CPILIB)
+
+
+#  Production rules for library compilation. 
+
+$(OBJD)\libmain.obj:   libmain.c $(CPIINC)\$(PROG).h
+    cl $(CFLAGS) libmain.c
+
+$(OBJD)\cpifile.obj:   cpifile.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGS) cpifile.c
+
+$(OBJD)\error.obj:   error.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGS) error.c
+
+$(OBJD)\toolutil.obj:   toolutil.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) toolutil.c
+
+$(OBJD)\sharpen.obj:   sharpen.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) sharpen.c
+
+$(OBJD)\sharpdlg.obj:   sharpdlg.c $(CPIINC)\$(PROG).h sharpdlg.h internal.h
+    cl $(CFLAGS) sharpdlg.c
+
+$(OBJD)\smooth.obj:   smooth.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) smooth.c
+
+$(OBJD)\smoothdl.obj:   smoothdl.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) smoothdl.c
+
+$(OBJD)\edge.obj:   edge.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) edge.c
+
+$(OBJD)\edgedlg.obj:   edgedlg.c $(CPIINC)\$(PROG).h edgedlg.h internal.h
+    cl $(CFLAGS) edgedlg.c
+
+$(OBJD)\rotate.obj:   rotate.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) rotate.c
+
+$(OBJD)\scale.obj:   scale.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) scale.c
+
+$(OBJD)\scaledlg.obj:   scaledlg.c $(CPIINC)\$(PROG).h scaledlg.h internal.h
+    cl $(CFLAGS) scaledlg.c
+
+$(OBJD)\flip.obj:   flip.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) flip.c
+
+$(OBJD)\mirror.obj:   mirror.c $(CPIINC)\$(PROG).h internal.h
+    cl $(CFLAGSO) mirror.c
+
+
+$(OBJD)\libentry.obj:   libentry.asm
+    masm $(AFLAGSD) libentry;
+    copy libentry.obj $(OBJD)
+    del libentry.obj
+
+
+
+
+#      Production rule for compiling resource script.
+
+
+$(PROG).res:  $(PROG).rc
+    rc -r  $(PROG).rc
+
+# Other update stuff...
+
+$(CPIINC)\$(PROG).h:  $(PROG).h
+    copy $(PROG).h $(CPIINC)
+
+
+#      Production rule for creating link commands.
+
+
+$(PROG).lnk:     makefile
+    echo $(OBJD)\libentry     + > $(PROG).lnk
+    echo $(OBJD)\libmain      + >>$(PROG).lnk
+    echo $(OBJD)\error        + >>$(PROG).lnk
+    echo $(OBJD)\toolutil     + >>$(PROG).lnk
+    echo $(OBJD)\cpifile      + >>$(PROG).lnk
+    echo $(OBJD)\sharpen      + >>$(PROG).lnk
+    echo $(OBJD)\sharpdlg     + >>$(PROG).lnk
+    echo $(OBJD)\smooth       + >>$(PROG).lnk
+    echo $(OBJD)\smoothdl     + >>$(PROG).lnk
+    echo $(OBJD)\edge         + >>$(PROG).lnk
+    echo $(OBJD)\edgedlg      + >>$(PROG).lnk
+    echo $(OBJD)\rotate       + >>$(PROG).lnk
+    echo $(OBJD)\scale        + >>$(PROG).lnk
+    echo $(OBJD)\scaledlg     + >>$(PROG).lnk
+    echo $(OBJD)\flip         + >>$(PROG).lnk
+    echo $(OBJD)\mirror         >>$(PROG).lnk
+    echo $(PROG).dll            >>$(PROG).lnk
+    echo nul                    >>$(PROG).lnk
+    echo win87em.lib          + >>$(PROG).lnk
+    echo mdllcew.lib          + >>$(PROG).lnk
+    echo cpi.lib              + >>$(PROG).lnk
+    echo cpifmt.lib           + >>$(PROG).lnk
+    echo prometer.lib         + >>$(PROG).lnk
+    echo libw.lib               >>$(PROG).lnk
+    echo tools.def              >>$(PROG).lnk
+
+

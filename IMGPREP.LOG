@@ -1,0 +1,358 @@
+Name            Date    Change
+----            ----    ------
+
+D. Ison         09-27   Updated IPUTILS.C to fix CPI monochrome file read.
+
+D. Ison         09-28   Updated DISPLAY.C to improve scrollbar handling.     
+                        (Instead of hardcoded 5, is now <scrollrange >> 3>).
+
+D. Ison         09-28   Updated IMGPREP.C to fix a minor bug involving the
+                        "True Color" display option on 8 & 4 bit displays.   
+
+D. Ison         09-28   Updated PREV.C to support Truevision's silly RGB 
+                        order problem.  Uses #ifdef TARGA to flip B <--> R.   
+
+D. Ison         10-01   Fixed a bug in PAINT.C that caused a UAE when OPR
+                        was abandoned.  (Cursor handle).
+
+--(Seybold Show Beta RC 1.0 10-01-90)--------------------------
+
+D. Ison         10-04   Fixed a bug with error-distributed dither on 1 row 
+                        per strip images.  Put a test in FILTERS.C for this 
+                        condition.
+
+D. Ison         10-04   Fixed a bug in IMGPREP.C that caused a UAE when the  
+                        gamma dialog was activated immediately after an 
+                        abandoned paint.
+
+D. Ison         10-04   Put the confirm exit message on the IDM_EXIT case.
+
+D. Ison         10-04   Added an "Exit Windows" selection on the system menu.
+
+
+--(Imageprep 3.1 Beta RC 2.0 10-08-90)--------------------------
+
+
+D. Ison         10-08   Changed OIC so it uses the Resource String Table.  
+                        This required defining a new structure to hold all
+                        the info to use the Prometer and passing a pointer
+                        to this structure into OIC.  (OICMETER)
+
+D. Ison         10-09   Took out the "Exit Windows" command.               
+
+D. Ison         10-09   Added a new "OPR Setup" dialog to specify the number
+                        of colors to reduce to.  This now works when OPR +
+                        NONE is selected.
+
+D. Ison         10-10   Took out remaining text strings and replaced with
+                        Resource file LoadString's.  (SAVE.C OPEN.C)
+
+D. Ison         10-10   Fix a bug with the error-dist dither export in VGA.
+                        The problem was with the exported images - they looked
+                        (really) bad.   FILTERS.C EXPORT.C QUANTIZE.C
+
+D. Mize         10-10   Added resetting of gamma and color correction tables
+                        to CREATE of DISPLAY.C
+
+D. Mize         10-10   Modified test to allow OPR color selection for dither
+                        cases and reprocess image when number of colors is
+                        changed in IMGPREP.C.
+
+D. Ison         10-11   Added FlushEugene() to IMGPREP.C
+
+D. Mize         10-12   Put in BALANCE.DLL. (IMGPREP.C)  Color Balance tool.
+
+
+--(Imageprep 3.1 Beta RC 3.0 10-12-90)--------------------------
+
+D. Ison         10-12   Added message WM_SHOWIMAGE to IMGPREP.C.  This was
+                        to give Eugene a chance to unload itself w/o floating
+                        memory problems.
+
+D. Ison         10-12   Added command line parameter capability to IMGPREP.C
+                        to allow specifying an image to open.          
+                        Syntax:  win imgprep <options> <filename.ext>
+
+D. Mize         10-16   Restored WM_SYSCOLORCHANGE messages that were mistakenly
+                        deleted to tell other apps that system colors have 
+                        been changed. (IMGPREP.C)
+
+D. Ison         10-18   Added TIF monochrome read.  Also changed all HANDLE 
+                        references involving access to DOS file handles to int.
+
+
+--(Imageprep 3.1 Beta RC 4.0 10-19-90)--------------------------
+
+
+D. Ison         10-22   Fixed a minor bug in PROMETER.DLL having to do with 
+                        the progress meter window being left on the screen
+                        in certain circumstances.
+
+D. Ison         10-22   Optimized the PCX RdConvertData function a bit 
+                        (PCXRCD.C).  Now it runs about 100% faster.
+
+D. Ison         10-22   Took care of the LoadString problem for 2-byte 
+                        languages (Kanji and the like) by making ALL
+                        LoadString references use 256-byte buffers.
+                        (Now all strings in the resource file in ImagePrep
+                        can be up to 256 bytes long).
+
+
+
+--(Imageprep 3.1 Beta RC 5.0 10-24-90)--------------------------
+
+
+D. Ison         10-24   Took care of various "cleanup" stuff like text  
+                        message to prometer.  
+ 
+D. Ison         10-24   Added an OIC results dialog that comes up after 
+                        OIC compression is finished, showing the file
+                        sizes and compression ratio.   OICINFO.C
+
+D. Ison         10-25   Fixed a problem with keyboard operation.  Main
+                        menu could not be accessed when image was 
+                        displayed.  Removed a SetFocus () from PAINT.C
+ 
+D. Ison         10-25   Complete re-compile and link with actual released
+                        Windows SDK.
+ 
+D. Mize         10-26   IMGPREP.C in WM_CLOSE LocalUnlock(hStringBuf) caused
+                        lock count to go negative by unlocking all the time
+                        when lock only occurred if image active.        
+
+D. Ison         11-06   Changed IMGPREP.C to fix the scrollbar range problem.
+
+D. Ison         11-06   Changed PCXRDH.C to test for .PCX files with < 4 
+                        bits per pixel.
+
+D. Ison         11-06   Changed OPRSETUP.C to correct the "up-down"
+                        condition in the OPR number colors setup dialog.
+
+D. Ison         11-08   Fixed the "Mystery Dot" black spot probem that was
+                        in REDUCE.C  (OPR Bug)
+
+D. Ison         11-08   Chenged IMGPREP.C to gray out .PCX and .GIF screen
+                        captures when running 24 bit display.
+
+D. Ison         11-08   Changed TIFRDH.C to only look at the LOWORD of the
+                        compression field.  Bones brought in some images that
+                        someone wrote out in a bit unusual fashion.
+
+D. Ison         11-15   Changed IMGPREP.C to change the way the scrollbars 
+                        work.  They now try to use as much space in the main 
+                        window as possible, instead of trying to scale the
+                        display window.
+
+D. Ison         11-20   Changed a couple of things in SETUP.C to fix some  
+                        cosmetic details (Error Distributed dither.)  Changed
+                        INFO.C to look prettier.  Changed "Color Dither" menu
+                        to read Linear, Floyd-Steinberg, Modified Stucki"
+                        Had a problem in TIFRDH.C with the test for 8 bit
+                        special case tiffs.  Removed the test.
+
+D. Ison         11-26   Changed the color dither menu back to "Burkes".
+
+D. Ison         11-26   Fixed SQUASH.C bug that did not delete the output file
+                        after a cancel from the OICSETUP dialog.
+
+D. Ison         11-26   Fixed the Monochrome problem.  This problem was    
+                        universal.  Any conversion from MONO to MONO would
+                        generate the problem, not just large images. Changed
+                        EXPORT.C
+
+D. Ison         11-26   Fixed the problem with canceling from OPR in VGA mode.
+                        Bug was in EXPORT.C.
+
+D. Ison         11-26   There were a couple of stray problems with MONO files
+                        in VGA mode, mostly involving the file read/write
+                        modules.  These have been changed, and the bugs should
+                        now be corrected.
+
+D. Ison         11-28   Fixed a problem in IPUTILS.C involving border widths 
+                        in the scrollbars.
+
+--(Imageprep 3.1 Beta RC 6.0 10-24-90)--------------------------
+
+D. Mize         12-04   Modifications to REDUCE.C to improve color reduction.
+                        Allows for full 24-bit color space whenever possible.
+                        Corrects problems with Color cell creation and determination.
+                        Multiple methods for palette determination: default changed
+                        to mean average rather than older median-cut (in certain
+                        instances math may overflow) if this shows a problem, we
+                        need to revert to less effective median-cut. Several
+                        minor optimizations performed to compensate for added
+                        processing time resulting from corrections to color
+                        reduction.
+                        
+D. Mize         12-05   Changed default reduction back to straight median-cut
+                        to avoid popularity problems for low number of reduction
+                        colors.
+
+D. Mize         12-05   Added Serial Number fields to ABOUT box (IMGPREP.RC)
+                
+D. Mize         12-05   Turned off scan if image is active
+        
+D. Mize         12-07   Optimized code for reduction (REDUCE.C REDUCE.H) uses
+                        Color Cells for dithering, integer multiplies, new
+                        mechanism for determining color cell distances, etc.
+        
+
+
+--(Imageprep 3.1 Release)---
+
+D. Ison         12-17   Fixed yet another bug found in the CPI monochrome 
+                        save.  Saving from scanned (1 bit) images to 8 bit
+                        monochrome images messed up for certain images.
+                        Changed CPIIH.C
+
+                5-8-91  --- 1st Release ---   Includes most spec'ed changes
+                        for Version 4.0 of Imageprep + bug fixes.
+
+
+                5-15-91 Put in Targa RLE read
+
+                5-16-91 Put in interface changes to menu and dialogs
+
+                5-16-91 --- Release 
+
+                5-17-91 Put in test for return values of clipboard DLL.
+                        Put in call to DestroyClipboard () on DESTROYWINDOW.
+                        Experimental modifications to open dialog.
+
+                5-17-91 --- Release 003
+
+                5-17-91 Fixed bug in CPI auto-convert.  Public file handles 
+                        not re-initialized.
+
+                5-17-91 --- Release 004
+
+D. Ison         5-23-91 Fixed bug in Reverse Colors.  Bug occurred with 
+                        grayscale or BW images.
+
+                5-28-91 Finished prototype "Processing Specs..." dialog
+
+
+                5-28-91 --- Release 005
+
+
+D. Ison         5-30-91 --- Added support for "UNDO".  Of course, this meant
+                            overhauling the entire open mechanism in the app.
+                            (Major workover).  This also affected tools.dll
+                            Application now distinguishes between a user 
+                            and a temp image which it deletes.
+                            
+D. Ison         6-03-91 --- Fixed bugs associated with above mods 
+
+
+                6-04-91 --- Release 006
+
+
+D. Ison         6-05-91 --- Addressed issue of skewed images on true color
+                            displays with a cheap work-around.  The problem
+                            was a bug in the display driver(s).
+
+D. Ison         6-06-91 --- Fixed other bugs in first round of internal
+                            testing.  All items fixed or addressed except  
+                            capture.dll stuff.
+
+                6-06-91 --- Release 007
+
+D. Ison         6-06-91 --- Bug fixes as reported
+
+                6-07-91 --- Release 008
+
+D. Ison         6-07-91 --- Rework for clipboard and view quality stuff
+
+D. Ison         6-07-91 --- Fixed "save-as-in-opened-directory" condition.
+
+                6-07-91 --- Release 009
+
+D. Ison         6-10-91 --- Fixed open/save directory stuff.
+                            Fixed some VGA display bugs (Grayscale / Gray 4 bit)
+                            Fixed some temp-file-not-deleted bugs.
+
+                6-10-91 --- Release 010
+
+D. Ison         6-11-91 --- Turned print on.
+
+                6-11-91 --- Release 011
+
+D. Ison         6-19-91 --- Fixed some bugs in merge.  Other bugs as documented.
+
+                6-20-91 --- Release 012
+ 
+D. Ison         6-20-91 --- Fixed more bugs as documented.  Added support for 
+                            1 bit mono scanner CPI images.
+
+                6-21-91 --- Release 013  (Colorlab release)
+
+D. Ison         6-26-91 --- Fixed more bugs as documented.  Merge bug.  Processin
+                            specs dialog now operative.   
+
+                6-26-91 --- Release 014  (ImagePrep & Colorlab release)
+
+D. Ison         6-28-91 --- Added parameters to print setup call to make it      
+                            work.
+
+                6-28-91 --- Release 015  (ImagePrep & Colorlab release)
+
+D. Ison         7-05-91 --- Fixed bugs as documented. 
+
+                7-09-91 --- Release 016  (ImagePrep & Colorlab release)
+                            Intended to support new clipboard and print
+                            DLL's.
+
+
+D. Ison         7-12-91 --- Added change for path in PRINT.DLL
+
+                7-12-91 --- Release 017  (ImagePrep only)
+
+D. Ison         7-12-91 --- Didn't work, try again.
+
+                7-12-91 --- Release 018  (ImagePrep only)
+
+D. Ison         7-12-91 --- Dennis fixed bug in WMF save.  
+
+                7-12-91 --- Release 019  (ImagePrep & Colorlab release)
+
+D. Ison         7-17-91 --- Fixed bug in DVA save.  
+                            Other bugs as documented.  (Rick's 7/15 list)
+
+                7-17-91 --- Release 020  (ImagePrep & Colorlab release)
+
+D. Ison         7-18-91 --- Fixed DVA save.  
+
+                7-18-91 --- Release 021  (ImagePrep & Colorlab release)
+
+
+D. Ison         7-22-91 --- Fixed mono Tiff auto-convert. 
+                            Fixed bugs as documented.
+
+                7-13-91 --- Release 022  (ImagePrep & Colorlab release)
+
+D. Ison         8-06-91 --- Fixed gray 16 Tiff save-as-black bug
+
+D. Ison         8-07-91 --- Fixed bugs on 2-page from 8-6-91 list except print/clipboard 
+
+                8-07-91 --- Release 023  (ImagePrep & Colorlab release)
+
+D. Ison         8-12-91 --- Fixed DVA save 8 bit to 24 bug
+
+                8-12-91 --- Release 024  (ImagePrep & Colorlab release)
+
+D. Ison         8-12-91 --- New logo, scan to temp file   
+
+                8-12-91 --- Release 025  (ImagePrep & Colorlab release)
+
+D. Ison         8-14-91 --- DVA fixes.
+
+                8-14-91 --- Release 026  (ImagePrep & Colorlab release)
+
+D. Ison         8-14-91 --- Bugs as documented.  Put in copy protection stuff
+
+                8-14-91 --- Release 027  (ImagePrep & Colorlab release)
+
+D. Ison         8-15-91 --- Bugs as documented.  Tiff save, auto-convert, OPR problem
+
+                8-15-91 --- Release 028  (ImagePrep & Colorlab release)
+

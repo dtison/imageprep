@@ -1,0 +1,29 @@
+#include "windows.h"
+#include "resource.h"
+DODISP DIALOG LOADONCALL MOVEABLE DISCARDABLE 47, 57, 212, 92
+CAPTION "Setup Image Processing"
+FONT 8, "Helv"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "Processing", 100, "button", BS_GROUPBOX | WS_CHILD, 4, 0, 146, 34
+    CONTROL "Default Color", 200, "button", BS_RADIOBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 8, 10, 58, 10
+    CONTROL "OPR Color", 201, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 70, 10, 56, 10
+    CONTROL "Grayscale", 202, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 8, 20, 48, 10
+    CONTROL "Black && White", 203, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 70, 20, 62, 10
+    CONTROL "Dithering", 105, "button", BS_GROUPBOX | WS_GROUP | WS_CHILD, 4, 36, 146, 42
+    CONTROL "No Dither", 300, "button", BS_RADIOBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 8, 46, 44, 10
+    CONTROL "No Dither - 16 shades", 303, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 58, 46, 86, 10
+    CONTROL "Ordered", 301, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 8, 66, 40, 10
+    CONTROL "Distributed", 302, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 8, 56, 50, 10
+    CONTROL "Distributed to 16 colors", 304, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 58, 56, 88, 10
+    CONTROL "&Ok", 1, "button", BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 158, 64, 42, 12
+    CONTROL "&Cancel", 2, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 158, 78, 42, 12
+    CONTROL "Image Status", 140, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 154, 0, 54, 62
+    CONTROL "&Source", 150, "button", BS_PUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 158, 10, 42, 12
+    CONTROL "&Display", 149, "button", BS_PUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 158, 22, 42, 12
+    CONTROL "&Processed", 151, "button", BS_PUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 158, 34, 42, 12
+    CONTROL "&Formats", 141, "button", BS_PUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 158, 46, 42, 12
+    CONTROL "VGA Compatible Output", 118, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 6, 80, 96, 12
+END
+
+

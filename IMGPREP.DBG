@@ -1,0 +1,170 @@
+
+#       Windows Image Prep 3.0 Make File
+#
+
+PROG          = IMGPREP
+ 
+#PROGFLAGS    = -DCOLORLAB 
+#PROGFLAGS    = -DDECIPHER
+ PROGFLAGS    = 
+#PROGFLAGS    = -DTARGA
+OBJDIR        = .\obj
+INCLUDE       = .\include
+CC            = cl -nologo -c -W3 -AM -G2sw -Zpe -Fo$(OBJDIR)\$*.obj
+CFLAGS        = -Oas $(PROGFLAGS)
+CFLAGSD       = -Od -Zi -DDEBUG $(PROGFLAGS)
+CFLAGSO       = -Ocilgt $(PROGFLAGS)
+CFLAGSOD      = -Ocilgt -Zi $(PROGFLAGS)
+ASM           = masm -W2 -Ml -Mx
+AFLAGS        =
+AFLAGSD       = -Zi
+LINK          = link /NOD/NOE/AL:16
+LFLAGS        = /MAP
+LFLAGSD       = /CO/INC/PADCODE:512 /PADDATA:64
+#LFLAGSD       = /CO
+
+.c.obj:
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\about.obj: about.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\display.obj: display.c
+  $(CC) $(CFLAGSD) $*.c
+  touch objtest
+#CFLAGS
+
+$(OBJDIR)\dither.obj: dither.c
+  $(CC) $(CFLAGSO) $*.c
+  touch objtest
+
+$(OBJDIR)\export.obj: export.c
+  $(CC) $(CFLAGSO) $*.c
+  touch objtest
+#FLAGSO
+
+
+$(OBJDIR)\file.obj: file.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\filters.obj: filters.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\format.obj: format.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+#CFLAGS
+
+$(OBJDIR)\imgprep.obj: imgprep.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+#FLAGS
+  
+$(OBJDIR)\import.obj: import.c
+  $(CC) $(CFLAGSD) $*.c
+  touch objtest
+#CFLAGS
+
+$(OBJDIR)\init.obj: init.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\logo.obj: logo.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\open.obj: open.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+#CFLAGS 
+
+$(OBJDIR)\paint.obj: paint.c
+  $(CC) $(CFLAGSO) $*.c
+  touch objtest
+
+$(OBJDIR)\palette.obj: palette.c
+  $(CC) $(CFLAGSO) $*.c
+  touch objtest
+#FLAGSO
+
+#$(OBJDIR)\pref.obj: pref.c
+#  $(CC) $(CFLAGS) $*.c
+#  touch objtest
+
+$(OBJDIR)\oprsetup.obj: oprsetup.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+#CFLAGS
+
+$(OBJDIR)\quantize.obj: quantize.c
+  $(CC) $(CFLAGSO)  $*.c
+  touch objtest
+
+#FLAGSO
+
+$(OBJDIR)\reduce.obj: reduce.c
+  $(CC) $(CFLAGSO) $*.c
+  touch objtest
+#FLAGSO
+
+$(OBJDIR)\save.obj: save.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\setup.obj: setup.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\squash.obj: squash.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\state.obj: state.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\unsquash.obj: unsquash.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\prev.obj: prev.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\info.obj: info.c
+  $(CC) $(CFLAGS) $*.c
+  touch objtest
+
+$(OBJDIR)\iputils.obj: iputils.c
+  $(CC) $(CFLAGSO) $*.c
+  touch objtest
+#FLAGSO
+
+
+$(OBJDIR)\domerge.obj: domerge.c
+  $(CC) $(CFLAGSD) $*.c
+  touch objtest
+
+$(OBJDIR)\mergedlg.obj: mergedlg.c
+  $(CC) $(CFLAGSD) $*.c
+  touch objtest
+
+#
+# File Formats gone now..
+
+#
+# Link
+#
+
+$(PROG).exe: $(PROG).res objtest
+  ilink /E "$(LINK) $(LFLAGSD) @$(PROG).lnk" $(PROG)
+
+# rc $(PROG).res
+
+$(PROG).exe: objtest
+   rc $(PROG).res
+

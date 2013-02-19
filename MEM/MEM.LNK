@@ -1,0 +1,9 @@
+.\obj\libentry     + 
+.\obj\libmain        
+MEM.dll            
+nul                    
+win87em.lib          + 
+mdllcew.lib          + 
+cpi.lib              + 
+libw.lib               
+mem.def              

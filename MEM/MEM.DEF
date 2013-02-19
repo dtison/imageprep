@@ -1,0 +1,15 @@
+LIBRARY     MEM     
+DESCRIPTION 'Memory Library Vers. 0.0  -  Copyright 1991, CPI'
+EXETYPE     WINDOWS
+STUB        'WINSTUB.EXE'
+CODE        PRELOAD FIXED
+DATA        PRELOAD FIXED
+HEAPSIZE    4096
+STACKSIZE   0
+
+SEGMENTS    LIBMAIN_TEXT    PRELOAD FIXED
+
+EXPORTS     WEP                     @1 RESIDENTNAME
+            Notify                  @2
+            SetupNotify             @3
+

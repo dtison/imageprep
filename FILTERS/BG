@@ -1,0 +1,150 @@
+
+;-------------------------------------------------------
+
+; (Green)
+; Will always do "5" position, so add here first
+
+                mov     ax,5
+                imul    green
+                sar     ax,cl
+                mov     bx,green_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                add     Byte Ptr es:[bx],al
+                mov     total_err,al                    ; Track total error
+                
+; Do "7" and "1" positions only if curr_dotcount < scanbytes
+; ("7" position)
+
+                mov     ax,7
+                imul    green
+                sar     ax,cl                           ; AL now is error to add
+                cmp     is_scanbytes,1                  ; If yes, skip error adding
+                je      tot_7_green
+                mov     green_err_next,al
+tot_7_green:    add     total_err,al                    ; Track total error
+
+; ("1" Position)
+                mov     al,green                          ; Just (1 * err) for this one
+                sar     ax,cl                           ; AL now is error to add
+                cmp     is_scanbytes,1                  ; If yes, skip error adding
+                je      tot_1_green  
+                mov     bx,green_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                inc     bx                              ; (j + 1)
+                add     Byte Ptr es:[bx],al
+tot_1_green:    add     total_err,al                    ; Track total error
+
+
+; ("3" Position)
+
+                mov     ax,3
+                imul    green
+                sar     ax,cl                           ; AL now is error to add
+
+; Add "3" position only if curr_dotcount > 0
+
+                cmp     is_zero,1                       ; If yes, skip error adding
+                je      tot_3_green 
+                mov     bx,green_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                dec     bx                              ; (j - 1)
+                add     Byte Ptr es:[bx],al
+tot_3_green:    add     total_err,al                    ; Track total error
+   
+
+
+; Make sure dispersed error = difference.  Find green_err - dispersed_err 
+; and put into "1" position  (if curr_dotcount < scanbytes)
+
+                cmp     is_scanbytes,1
+                je      skip_total_green
+                
+                mov     al,total_err
+                sub     green,al
+                mov     al,green
+                
+                mov     bx,green_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                inc     bx                              ; (j + 1)
+                add     Byte Ptr es:[bx],al
+
+
+skip_total_green:
+
+
+
+;-------------------------------------------------------
+
+
+; (Blue)
+; Will always do "5" position, so add here first
+
+                mov     ax,5
+                imul    blue
+                sar     ax,cl
+                mov     bx,blue_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                add     Byte Ptr es:[bx],al
+                mov     total_err,al                    ; Track total error
+
+; Do "7" and "1" positions only if curr_dotcount < scanbytes
+; ("7" position)
+
+                mov     ax,7
+                imul    blue
+                sar     ax,cl                           ; AL now is error to add
+                cmp     is_scanbytes,1                  ; If yes, skip error adding
+                je      tot_7_blue
+                mov     blue_err_next,al
+tot_7_blue:     add     total_err,al                    ; Track total error
+
+; ("1" Position)
+                mov     al,blue                          ; Just (1 * err) for this one
+                sar     ax,cl                           ; AL now is error to add
+                cmp     is_scanbytes,1                  ; If yes, skip error adding
+                je      tot_1_blue  
+                mov     bx,blue_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                inc     bx                              ; (j + 1)
+                add     Byte Ptr es:[bx],al
+tot_1_blue:     add     total_err,al                    ; Track total error
+
+
+; ("3" Position)
+
+                mov     ax,3
+                imul    blue
+                sar     ax,cl                           ; AL now is error to add
+
+; Add "3" position only if curr_dotcount > 0
+
+                cmp     is_zero,1                       ; If yes, skip error adding
+                je      tot_3_blue 
+                mov     bx,blue_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                dec     bx                              ; (j - 1)
+                add     Byte Ptr es:[bx],al
+tot_3_blue:     add     total_err,al                    ; Track total error
+   
+
+
+; Make sure dispersed error = difference.  Find blue_err - dispersed_err 
+; and put into "1" position  (if curr_dotcount < scanbytes)
+
+                cmp     is_scanbytes,1
+                je      skip_total_blue
+                
+                mov     al,total_err
+                sub     blue,al
+                mov     al,blue
+                
+                mov     bx,blue_err
+                add     bx,curr_dotcount                ; (same as "j" in C code)
+                inc     bx                              ; (j + 1)
+                add     Byte Ptr es:[bx],al
+                
+
+skip_total_blue:
+
+
+

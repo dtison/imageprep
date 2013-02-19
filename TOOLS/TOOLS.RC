@@ -1,0 +1,78 @@
+#include <windows.h>
+#include "sharpdlg.h"
+#include "smoothdl.h"
+#include "edgedlg.h"
+#include "scaledlg.h"
+#include "errtable.h"
+#include "strtable.h"
+
+STRINGTABLE
+BEGIN
+
+STR_SOURCE_DEST_DIFF        "Source and Destination image names must be different."
+STR_MUST_ENTER_SOURCE       "A filename for the source image must be supplied."
+STR_SOURCE_EXIST            "The source image does not exist"
+STR_MUST_ENTER_DEST         "A filename for the destination image must be supplied."
+STR_IMAGE_EXISTS_CONFIRM    "Image file already exists. Overwrite?"
+STR_SOURCE_PATH             "Source: "
+STR_DEST_PATH               "Destination: "
+STR_SOURCE_OIC              "The source image is compressed with OIC.  Open the image first and then re-process."
+STR_SHARPEN                 "Sharpen"
+STR_SHARPENING_IMAGE        "Sharpening at level %d with %s"
+STR_UNSHARP_MASK            "Unsharp mask"
+STR_HIGHPASS_FILTER         "Highpass filter"
+STR_SMOOTH                  "Smooth"
+STR_SMOOTHING_IMAGE         "Smoothing image"
+STR_REMOVE_NOISE            "Remove Noise"
+STR_REMOVING_NOISE          "Removing Noise"
+STR_MEDIAN_FILTER           "Median filter"
+STR_LOWPASS_FILTER          "Lowpass filter"
+STR_ENHANCE_EDGE            "Enhance Edge"
+STR_EDGE_ENHANCING_IMAGE    "Enhancing Edge at %d with level %d"
+STR_ROTATE                  "Rotate"
+STR_ROTATING_IMAGE          "Rotating image %s"
+STR_CLOCKWISE               "clockwise"
+STR_CCLOCKWISE              "counterclockwise"
+STR_SCALE                   "Scale"
+STR_SCALING_IMAGE           "Scaling image using %s"
+STR_TRUNCATION              "stretch"
+STR_AVERAGING               "averaging"
+STR_AVGINTERPOLATE          "antialiasing"
+STR_FLIP                    "Flip"
+STR_FLIPPING_IMAGE          "Flipping image"
+STR_MIRROR                  "Mirror"
+STR_MIRRORING_IMAGE         "Mirroring image"
+STR_CREATE_LINE_DRAWING     "Trace Contour"
+STR_CREATING_LINE_DRAWING   "Tracing Contour with sensitivity %d"
+STR_NO_ZERO_PIXELS          "Can not scale image to zero pixels."
+STR_SCALED_TOO_WIDE         "Can not scale image larger than 4400 pixels wide."
+STR_STRETCH                 " Stretch"
+STR_AVERAGE                 " Average"
+STR_ANTIALIAS               " Antialias"
+STR_PIXELS                  " Pixels"
+STR_INCHES                  " Inches"
+STR_CENTIMETERS             " Centimeters"
+STR_MILLIMETERS             " Millimeters"
+STR_POINTS                  " Points"
+STR_PICAS                   " Picas"
+
+ERR_ERROR                   "Error"
+ERR_NOMEM                   "Not enough memory to complete requested operation.  Try closing other Windows applications increase available memory."
+
+ERR_FILEREAD1               "An error occurred while reading from file.  Operation canceled."
+ERR_FILEWRITE1              "An error occurred while writing to file.  Operation canceled."
+
+ERR_OPENIMAGE               "An error occurred while opening the input image.  Check available memory and make certain the input filename is a valid CPI file."
+ERR_CREATEIMAGE             "An error occurred while creating the output image.  Check available disk space on the Windows TEMP directory."
+
+
+END
+
+#define WIN
+
+#include "sharpen.dlg"
+#include "edge.dlg"
+#include "contour.dlg"
+#include "scale.dlg"
+#include "smooth.dlg"
+

@@ -1,0 +1,33 @@
+
+List of Items Still Pending for ImagePrep 4.0 Release
+=====================================================
+
+As of 05/28/91
+
+
+Metafile Clipboard Copy
+
+
+Integration of print (Print now exists in a prototype app)
+
+
+Metafile Import - Does not affect state matrix.
+
+
+Metafile Export - Modifies state matrix.  However, first phase has already
+                  been done in anticipation of (Dennis) putting it in.  
+                  But Dennis has been longer on print than expected.
+
+
+Targa RLE Export - Modifies state matrix.  Note this includes M8, 16, 24, 
+                   32 RLE exports.  Recent work on interface has taken 
+                   priority over this.
+
+  
+Interface        - Implementation of "Processing Specs" dialog.
+                   This dialog is intended to emulate the old
+                   "Setup Processing" dialog plus support some
+                   things that heretofore have only been available
+                   as menu selections.
+                   
+

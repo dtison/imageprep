@@ -1,0 +1,55 @@
+#include "windows.h"
+#include "resource.h"
+INPUTIMG DIALOG LOADONCALL MOVEABLE DISCARDABLE 155, 72, 158, 98
+CAPTION "Source Image"
+FONT 8, "Helv"
+STYLE  WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | DS_SETFONT | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "Source Image", 140, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 6, 5, 146, 63
+    CONTROL "Type:", 141, "static", SS_LEFT | WS_CHILD, 18, 19, 24, 8
+    CONTROL "Class:", 142, "static", SS_LEFT | WS_CHILD, 18, 28, 24, 8
+    CONTROL "Width:", 143, "static", SS_LEFT | WS_CHILD, 18, 37, 28, 9
+    CONTROL "Height:", 144, "static", SS_LEFT | WS_CHILD, 18, 46, 32, 9
+    CONTROL "Size:", 145, "static", SS_LEFT | WS_CHILD, 18, 55, 35, 9
+    CONTROL "", 600, "static", SS_LEFT | WS_CHILD, 54, 19, 92, 8
+    CONTROL "", 601, "static", SS_LEFT | WS_CHILD, 54, 28, 92, 8
+    CONTROL "", 602, "static", SS_LEFT | WS_CHILD, 54, 37, 92, 8
+    CONTROL "", 603, "static", SS_LEFT | WS_CHILD, 54, 46, 92, 8
+    CONTROL "", 604, "static", SS_LEFT | WS_CHILD, 54, 55, 92, 8
+    CONTROL "&Ok", IDOK, "button", BS_DEFPUSHBUTTON | WS_TABSTOP | WS_CHILD, 60, 76, 42, 14
+END
+
+
+PROIMG DIALOG LOADONCALL MOVEABLE DISCARDABLE 102, 66, 211, 74
+CAPTION "Processed Image"
+FONT 8, "Helv" 
+STYLE  WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | DS_SETFONT | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "&Ok", IDOK, "button", BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 87, 56, 42, 14
+    CONTROL "Processed Image", 149, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 8, 5, 194, 46
+    CONTROL "Class:", 150, "static", SS_LEFT | WS_CHILD, 14, 15, 34, 8
+    CONTROL "Palette:", 139, "static", SS_LEFT | WS_CHILD, 14, 23, 38, 8
+    CONTROL "Dither:", 142, "static", SS_LEFT | WS_CHILD, 14, 31, 35, 8
+    CONTROL "", 605, "static", SS_LEFT | WS_CHILD, 52, 15, 138, 8
+    CONTROL "", 606, "static", SS_LEFT | WS_CHILD, 52, 23, 138, 8
+    CONTROL "", 607, "static", SS_LEFT | WS_CHILD, 52, 31, 138, 8
+    CONTROL "", 608, "static", SS_LEFT | WS_CHILD, 52, 39, 138, 8
+END
+
+DISPIMG DIALOG LOADONCALL MOVEABLE DISCARDABLE 110, 74, 205, 81
+CAPTION "Display Image"
+FONT 8, "Helv" 
+STYLE  WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | DS_SETFONT | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "&Ok", IDOK, "button", BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 86, 65, 42, 14
+    CONTROL "Display Image", 149, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 8, 6, 188, 53
+    CONTROL "Class:", 150, "static", SS_LEFT | WS_CHILD, 13, 18, 34, 8
+    CONTROL "Palette:", 139, "static", SS_LEFT | WS_CHILD, 13, 27, 36, 8
+    CONTROL "Dither:", 142, "static", SS_LEFT | WS_CHILD, 13, 37, 37, 8
+    CONTROL "", 605, "static", SS_LEFT | WS_CHILD, 51, 17, 138, 8
+    CONTROL "", 606, "static", SS_LEFT | WS_CHILD, 51, 27, 138, 8
+    CONTROL "", 607, "static", SS_LEFT | WS_CHILD, 50, 37, 138, 8
+    CONTROL "", 608, "static", SS_LEFT | WS_CHILD, 51, 47, 138, 8
+END
+
+

@@ -1,0 +1,18 @@
+
+Microsoft (R) Program Maintenance Utility  Version 4.07
+Copyright (C) Microsoft Corp 1984-1988.  All rights reserved.
+
+
+  masm -W2 -DSEGNAME=FILTERSLIB_TEXT -Zi fmt8to24;
+Microsoft (R) Macro Assembler Version 5.10 
+Copyright (C) Microsoft Corp 1981, 1988.  All rights reserved.
+
+cMacros Version 5.20 - Copyright (c) Microsoft Corp. 1984-1988 
+Windows support 
+
+  48860 + 265339 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
+  lib FILTERS -+ fmt8to24;
+^C

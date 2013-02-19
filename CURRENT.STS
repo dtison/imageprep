@@ -1,0 +1,19 @@
+[shared-]
+	pmark="C:\IMGPREP\open.c" 44 1
+	mark=cvw "C:\IMGPREP\open.c" 44 1 'E "open.c"!.44
+	mark=cvw "C:\IMGPREP\open.c" 156 1 'E "open.c"!.156
+	mark=cvw "C:\IMGPREP\export.c" 374 1 'E "export.c"!.374
+	version=2
+[debug-]
+	target="c:\imgprep\imgprep.exe"
+	watch=szSaveDir,s'00257
+[cvw]
+	wndstate=0 0 1 2 0 0 0 0 0 1 254
+	tilestate=1 24 0 80 0 0 0 0 0 4 0 0 0 0 20 0 0 254
+	command=use auto
+	command=n10
+	command=ss1
+	command=oc+
+	command=of-
+	command=o3-
+	execheck=IMAGEPREP 680807722

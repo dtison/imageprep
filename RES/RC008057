@@ -1,0 +1,429 @@
+#line 1"IMGPREP.RC"
+#line 2
+#include "windows.h"
+#include "resource.h"
+#include "save.h"
+#include "menu.h"
+#include "mergedlg.h"
+#include "exitdlg.h"
+#line 9
+/* --- Dialogs  */
+#line 11
+#include "about.dlg"
+#include "saveops.dlg"
+#include "imgdlgs.dlg"
+#include "dodisp.dlg"
+#include "saverpt.dlg"
+#include "filedlg.dlg"
+#include "merge.dlg"
+#include "exit.dlg"
+#include "oprsetup.dlg"
+#include "info.dlg"
+#ifndef DECIPHER
+#include "compsetu.dlg"
+#include "oicinfo.dlg"
+#endif
+#line 27
+#ifdef COLORLAB
+LOGO METAFILE PRELOAD MOVEABLE DISCARDABLE colorlab.wmf
+#else
+#ifdef DECIPHER
+LOGO METAFILE PRELOAD MOVEABLE DISCARDABLE decipher.wmf
+#else
+LOGO METAFILE PRELOAD MOVEABLE DISCARDABLE imgprep.wmf
+#endif
+#endif
+#line 38
+IMGPREP_ICON    ICON    LOADONCALL MOVEABLE DISCARDABLE IMGPREP.ICO
+IDC_CROSSHAIR   CURSOR  LOADONCALL MOVEABLE DISCARDABLE IMGPREP.CUR
+HelpCursor      CURSOR  help.cur
+MERGE_ICON      ICON    LOADONCALL MOVEABLE DISCARDABLE MERGE.ICO
+CLIP_ICON       ICON    LOADONCALL MOVEABLE DISCARDABLE CLIP.ICO
+COMBINE_ICON    ICON    LOADONCALL MOVEABLE DISCARDABLE COMBINE.ICO
+#line 46
+/*---------------------------- Main Application Menu  ---------------------*/
+#line 48
+ImgPrepMenu     MENU    
+BEGIN
+POPUP "&File"
+BEGIN
+MENUITEM "&Open...",                   IDM_OPEN
+MENUITEM "&Close",                     IDM_CLOSE
+MENUITEM "&Save As...",                IDM_SAVE
+#ifdef COLORLAB                             
+MENUITEM SEPARATOR                     
+MENUITEM "Sca&n...",                   IDM_SCAN
+#endif                                      
+MENUITEM SEPARATOR                     
+MENUITEM "&Info... ",                  IDM_INFO 
+MENUITEM SEPARATOR                     
+MENUITEM "E&xit",                      IDM_EXIT
+END                                       
+#line 66
+POPUP "&View"                             
+BEGIN                                     
+MENUITEM "&Display On",                IDM_DISPLAY_TOGGLE, CHECKED
+MENUITEM SEPARATOR                     
+MENUITEM "&Actual Size",               IDM_ACTUALSIZE, CHECKED
+MENUITEM "&Fit In Window",             IDM_FITINWINDOW
+MENUITEM SEPARATOR                     
+MENUITEM "&Normal  Color",             IDM_VIEWNORMAL, CHECKED
+MENUITEM "&Quality Color",             IDM_VIEWQUALITY
+MENUITEM "&True    Color",             IDM_VIEWTRUECOLOR
+END                                       
+#line 79
+POPUP "&Process"                          
+BEGIN                                     
+MENUITEM "&Setup Processing...",       IDM_SET_DISP
+MENUITEM "&Retain Settings",           IDM_RETAIN_TOGGLE
+MENUITEM SEPARATOR                     
+POPUP    "&Color Dither"               
+BEGIN                                  
+MENUITEM "&Linear",                   IDM_FAST  
+MENUITEM "&Floyd-Steinberg",          IDM_FS, CHECKED
+MENUITEM "&Burkes"                    IDM_BURKE
+END                                     
+POPUP    "&Color Matching"
+BEGIN                          
+MENUITEM "&Relaxed",                  IDM_RELAXED, CHECKED
+MENUITEM "&Strict",                   IDM_STRICT
+END
+MENUITEM SEPARATOR                     
+MENUITEM "Setup &OPR...",               IDM_SETUP_OPR
+MENUITEM SEPARATOR                     
+MENUITEM "&Merge...",                   IDM_MERGE
+MENUITEM "&Sharpen...",                 IDM_SHARPEN
+MENUITEM "&Remove Noise...",                  IDM_SMOOTH
+MENUITEM "&Enhance Edge...",            IDM_ENHANCE_EDGE
+MENUITEM "&Rotate...",                  IDM_ROTATE  
+MENUITEM "&Scale...",                   IDM_SCALE   
+MENUITEM "&Flip...",                    IDM_FLIP    
+MENUITEM "&Mirror...",                  IDM_MIRROR  
+#line 107
+END
+#line 110
+POPUP "&Enhance"
+BEGIN
+MENUITEM "&Brightness/Contrast...",    IDM_BC
+MENUITEM "&Color...",                  IDM_RGB
+MENUITEM "Ba&lance...",                IDM_BALANCE
+MENUITEM "&Gamma...",                  IDM_GAMMA
+MENUITEM SEPARATOR
+MENUITEM "&Invert Colors",             IDM_INVERTCOLORS
+END
+#line 121
+POPUP "&Capture"                  
+BEGIN
+MENUITEM "Capture &Off",               IDM_ACTIVATE_TOGGLE
+MENUITEM SEPARATOR
+POPUP "&Area"
+BEGIN
+MENUITEM "&Screen",                   IDM_CAP_SCREEN, CHECKED
+MENUITEM "&Window",                   IDM_CAP_WINDOW 
+MENUITEM "C&lient",                   IDM_CAP_CLIENT
+MENUITEM "&Custom",                   IDM_CAP_AREA
+END
+POPUP    "&Format"
+BEGIN
+MENUITEM "&BMP",                              IDM_CAPDIB
+MENUITEM "&CPI",                              IDM_CAPCPI, CHECKED
+MENUITEM "&GIF",                              IDM_CAPGIF
+MENUITEM "&PCX",                              IDM_CAPPCX
+MENUITEM "&TGA",                              IDM_CAPTGA
+MENUITEM "T&IF",                              IDM_CAPTIF
+END
+MENUITEM SEPARATOR
+MENUITEM "&Hotkey...",                 IDM_SETHOTKEY
+#line 144
+END         
+#line 146
+POPUP "\aHelp "
+BEGIN
+#ifdef HELP
+MENUITEM "&Index...",                   IDM_HELPINDEX
+MENUITEM "&Keyboard...",                1
+MENUITEM "&Commands...",                1
+MENUITEM "&Procedures...",              1
+MENUITEM "&Glossary...",                1
+MENUITEM "&Using Help...",              1
+MENUITEM SEPARATOR
+#endif
+#ifdef COLORLAB
+MENUITEM "&About Colorlab...",                   IDM_ABOUT
+#else
+#ifdef DECIPHER
+MENUITEM "&About Decipher...",                   IDM_ABOUT
+#else
+MENUITEM "&About ImagePrep...",                  IDM_ABOUT
+#endif
+#endif
+END
+#line 168
+END
+#line 172
+/*---  String table   --- */
+#line 174
+STRINGTABLE
+BEGIN
+RCFMT_CPI,        "CPI"                                 
+RCFMT_TIF,        "Tiff"
+RCFMT_PS,         "PostScript"
+RCFMT_TGA,        "Targa - Truevision"
+RCFMT_PCX,        "PCX - PC Paintbrush"
+RCFMT_GIF,        "GIF"
+IDS_APPNAME,      "Capture"
+#line 184
+RC_TYPE_CPI,      "CPI"
+RC_TYPE_TIF,      "TIFF"
+RC_TYPE_EPS,      "PostScript"
+RC_TYPE_TGA,      "Targa"
+RC_TYPE_PCX,      "PCX"
+RC_TYPE_GIF,      "GIF"
+RC_TYPE_PMDIB,    "PM Bitmap"
+RC_TYPE_WNDIB,    "Windows Bitmap"
+#line 193
+RC_CLASS_RGB,     "RGB True color"
+RC_CLASS_CM,      "Colormapped"
+RC_CLASS_GRAY,    "Grayscale"
+RC_CLASS_BW,      "Monochrome"
+RC_CLASS_RGB16,   "RGB True color"
+RC_CLASS_CM16,    "Colormapped VGA compatible"
+RC_CLASS_GRAY16,  "Colormapped VGA gray"
+#line 201
+RC_PAL_IMG,       "256-color image palette"
+RC_PAL_DEF,       "256-color default palette"
+RC_PAL_OPT,       "256-color optimized palette"
+RC_PAL_GRAY,      "256-gray shades"
+RC_PAL_BW,        "Monochrome"
+RC_PAL_IMG16,     "16-color image palette"
+RC_PAL_DEF16,     "16-color default palette"
+RC_PAL_OPT16,     "16-color optimized palette"
+RC_PAL_GRAY16,    "16-levels of gray"
+#line 211
+RC_DITH_NO,       "No dither"
+RC_DITH_BAY,      "Ordered dither: Bayer"
+RC_DITH_FS,       "Error Distributed dither"
+RC_DITH_FS2,      "                              " 
+#line 216
+RC_BLANK,         "  "
+#line 218
+RC_LIT,                       " "
+RC_REDU,                "Optimize 24-bit to 256 colors"
+RC_FS,            "Error Distributed dither 24-bit image to 8-bit"
+RC_BAY8,          "Bayer dither 24-bit image to 8-color"
+RC_UQUA,          "Map 24-bit image to 256 default colors"
+RC_UQUA8,         "Map 24-bit image to 8 default colors"
+RC_GSUM,          "Gray sum 24-bit data to 256 gray shades"
+RC_LEVL,          "Reduce number of gray shades"
+RC_DEIDX,         "De-index 8-bit data to 24-bit data"
+RC_G2BW,          "Threshold 256 gray shades to BW"
+RC_GBAY,          "Bayer dither 256 gray shades to BW"
+RC_GFS,           "Error Distributed dither 256 gray to BW"
+#line 231
+RCP_DP256,        "256 default colors"
+RCP_DP8,          "8 default colors"
+RCP_DP16,         "16 default colors"
+RCP_OP256,        "optimized colors"
+RCP_OP8,          "8 optimized colors"
+RCP_OP16,         "optimized colors"
+RCP_GP256,        "256 levels of gray"
+RCP_GP64,         "64 levels of gray"
+RCP_GP16,         "16 levels of gray"
+RCP_GP8,          "8 levels of gray"
+RCP_BP,           "Monochrome"
+RCP_IP256,        "Loaded from image"
+#line 244
+RS_FMT_CPI24,     "ColorLab 24-bit (CPI)"
+RS_FMT_TIF24,     "Aldus TIFF 24-bit (TIF)"
+RS_FMT_EPS24,     "PostScript-Color (EPS)"
+RS_FMT_TGA16,     "TrueVision Targa-16 (TGA)"
+RS_FMT_TGA24,     "TrueVision Targa-24 (TGA)"
+RS_FMT_TGA32,     "TrueVision Targa-32 (TGA)"
+RS_FMT_PMDIB24,   "PM Bitmap 24-bit (BMP)"
+RS_FMT_WNDIB24,   "Windows Bitmap 24-bit (BMP)"
+#ifndef DECIPHER
+RS_FMT_CCPI24,    "ColorLab Compressed (CPI)"
+#endif                                             
+RS_FMT_CPI,       "ColorLab (CPI)"
+RS_FMT_TIF,       "Aldus TIFF (TIF)"
+RS_FMT_TGA,       "TrueVision Targa-M8 (TGA)"
+RS_FMT_PCX,       "Publisher's Paintbrush (PCX)"
+RS_FMT_GIF,       "Graphics Interchange (GIF)"
+RS_FMT_PMDIB,     "PM Bitmap (BMP)"
+RS_FMT_WNDIB,     "Windows Bitmap (BMP)"            
+RS_FMT_EPS        "PostScript (EPS)"
+#line 264
+RS_EXT_CPI24,     ".cpi"
+RS_EXT_TIF24,     ".tif"
+RS_EXT_EPS24,     ".eps"
+RS_EXT_TGA16,     ".tga"
+RS_EXT_TGA24,     ".tga"
+RS_EXT_TGA32,     ".tga"
+RS_EXT_PMDIB24,   ".bmp"
+RS_EXT_WNDIB24,   ".bmp"
+RS_EXT_CCPI24,    ".cpi"
+RS_EXT_CPI,       ".cpi"
+RS_EXT_TIF,       ".tif"
+RS_EXT_TGA,       ".tga"
+RS_EXT_PCX,       ".pcx"
+RS_EXT_GIF,       ".gif"
+RS_EXT_PMDIB,     ".bmp"
+RS_EXT_WNDIB,     ".bmp"
+RS_EXT_EPS,       ".eps"
+#line 282
+/*  Standard messages  */
+#line 284
+STR_MODE_REAL               "Real Mode"
+STR_MODE_STD                "Standard Mode"
+STR_MODE_ENH                "386 Enhanced Mode"
+STR_CPU_286                 "80286 CPU"
+STR_CPU_386                 "80386 CPU"
+STR_CPU_486                 "80486 CPU"
+STR_CLS_CLRMAP              "Colormap"
+STR_CLS_RGB                 "RGB"
+STR_FREE_MEM                "Free Memory: %ldK"
+STR_DISK_SPACE              "Disk Space:  %ldK"
+STR_INSUFFICIENT_DISK_SAVE  "Not enough disk space to save %s"
+STR_SAVE_AS                 "Save As"
+STR_SAVING_IMAGE            "Saving Image"
+STR_UPIXELS                 "%u Pixels"
+STR_LBYTES                  "%ld Bytes"
+STR_MENU_FILEMGR            "File &Manager..."
+STR_MENU_CTRLPANEL          "Control &Panel..."
+STR_MENU_CAPTURE_ON         "Capture &On"
+STR_MENU_CAPTURE_OFF        "Capture &Off"
+STR_DDWINDOWS               "Windows %d.%d"
+STR_NO_IMAGE_ACTIVE         "(No image active)");
+STR_DWIDTH                  "Width:  %d"
+STR_DHEIGHT                 "Height: %d"
+STR_OPEN                    "Open"
+STR_ABANDON_DISPLAY         "Abandon display and close image?"
+STR_IMAGE_DISPLAY           "Image Display"
+STR_GEN_HISTOGRAM           "Generating Histogram"
+STR_GEN_PALETTE             "Generating Palette"
+STR_OPT_COLORS              "Optimizing Colors"
+STR_MAP_COLORSPACE          "Mapping Color Space"
+STR_COLORMAP                "Colormap"
+STR_GRAY                    "Grayscale"
+STR_MONOCHROME              "Monochrome"
+STR_IMAGE_IS_WIDE           "The image you are about to open exceeds the recommended maximum of 4400 pixels wide.  If you continue, the application may terminate unexpectedly"
+STR_IMAGE_SIZE_WARNING      "Image Size Warning"
+STR_MENU_DISPLAY_ON         "Display &On"
+STR_MENU_DISPLAY_OFF        "Display &Off"
+STR_PALETTE_OPTIMIZATION,   "Palette Optimization"
+STR_DISPLAY_BITS            "%d Bit Display"
+#ifdef COLORLAB
+STR_APPNAME                 "Colorlab"
+#else
+#ifdef DECIPHER
+STR_APPNAME                 "Decipher"
+#else
+STR_APPNAME                 "ImagePrep"
+#endif
+#endif
+STR_CONFIRM_EXIT            "Image is not saved.  Do you wish to save?"
+STR_MENU_EXITWINDOWS        "E&xit Windows"
+STR_COMPRESSING_IMAGE       "Compressing Image at Level %d"
+STR_DECOMPRESSING_IMAGE     "Decompressing Image"
+STR_OIC                     "Optimized Image Compression"
+STR_UNABLE_OPEN_S           "Unable to open %s"
+STR_NOT_EXIST_S             "%s does not exist"
+STR_CANNOT_OVERWRITE_S      "Cannot overwrite %s"
+STR_IMAGE_EXISTS_CONFIRM    "Image file already exists. Overwrite?"
+STR_OIC_RESULTS             "Image Compression Results"
+STR_OIC_RATIO               "%1.1d.%1.1d : 1"   
+STR_OPT_UCOLORS             "Optimizing %u Colors "
+STR_OPT_FROMU               "from %u"
+#ifdef NEVER
+STR_TIF8_WARNING            "The image you are about to open is formatted such that if you save it as a 24-bit Tiff directly, it may not be readable by this application."
+#endif
+STR_LINEAR_DITHER           "Linear Filter"
+STR_FS_DITHER               "Floyd-Steinburg Filter"
+STR_BURKES_DITHER           "Burkes Filter"
+STR_MERGE                   "Merge"
+STR_SOURCE_1_EXIST          "Source Image 1 does not exist"
+STR_SOURCE_2_EXIST          "Source Image 2 does not exist"
+STR_MUST_ENTER_SOURCE_1     "A filename for source image 1 must be supplied."
+STR_MUST_ENTER_SOURCE_2     "A filename for source image 2 must be supplied."
+STR_SOURCE_1_NOT_24         "Source Image 1 must be 24 bits / pixel and uncompressed."
+STR_SOURCE_2_NOT_24         "Source Image 2 must be 24 bits / pixel and uncompressed."
+STR_MUST_ENTER_MERGED       "A filename for merged image must be supplied."
+STR_SOURCE_IMAGE_1          "Image 1: %s"
+STR_SOURCE_IMAGE_2          "Image 2: %s"
+STR_MERGED_IMAGE            "Merged:   %s"
+STR_SOURCE_MERGED_DIFF      "Source and Merged image names must be different."
+STR_ORG_NOT_NEGATIVE        "Origin values can not be negative."
+STR_LENGTH_NOT_NEGATIVE     "Length values can not be negative."
+STR_ORG_LENGTH_TOO_BIG      "Origin + Length Values can not exceed image size."
+STR_MERGE_POINT_LOG         "Merge point can not extend past specified image size."
+STR_MERGE_POINT_PHYS        "Merge point can not lie outside of the image."
+STR_MERGE_X_NEGATIVE        "Can not merge the second image to the left of the first."
+#line 370
+/*  Error messages              */
+#line 372
+ERR_ERROR                   "Internal application error"
+ERR_SETHOT                  "Failed to set Hotkey"
+ERR_OPENDLG                 "Failed to Open File"
+ERR_UFILETYPE               "Unknown File Format"
+ERR_SAVEDLG                 "Failed to Save File"
+ERR_NOMEM                   "Not enough memory to complete requested operation.  Try closing other Windows applications increase available memory."
+ERR_RDHDR                   "Failed to read file header"
+ERR_GSHADES                 "Unknown # of Gray Shades Request"
+ERR_RTGALS                  "Failed To Reset TGA File"
+ERR_RTGAHDR                 "Failed To Read TGA File Header"
+ERR_RTIFLS                  "Failed to Reset TIF File"
+ERR_RTIFHDR                 "Failed to Read  TIF Header"
+ERR_RTIFTAGS                "Failed to Read  TIF Tags"
+ERR_RPCXLS                  "Failed to Reset PCX File"
+ERR_RPCXHDR                 "Failed to Read  PCX Header"
+ERR_UNGIF                   "Unsupported GIF Format"
+ERR_WRHDR                   "Failed to Write Header"
+ERR_UNTIFMON                "Monochrome TIFF Read Currently Unsupported"
+ERR_UNTIFCOMP               "Compressed TIFF Read Currently Unsupported"
+ERR_SAMPIX                  "PCX files less than 4 bits per pixel are not supported.  Try reading your image into Windows Paintbrush, saving it as a PCX or BMP, and then open that image."
+ERR_BIGSTRIPS               "Strip size is larger than recommended TIFF standard"
+ERR_MEMORY1                 "A memory allocation error occurred.  Operation canceled (1)"
+ERR_MEMORY2                 "A memory allocation error occurred.  Operation canceled (2)"
+ERR_MEMORY3                 "A memory allocation error occurred.  Operation canceled (3)"
+ERR_MEMORY4                 "A memory allocation error occurred.  Operation canceled (4)"
+ERR_MEMORY5                 "A memory allocation error occurred.  Operation canceled (5)"
+ERR_FILEREAD1               "An error occurred while reading from file.  Operation canceled (1)"
+ERR_FILEREAD2               "An error occurred while reading from file.  Operation canceled (2)"
+ERR_FILEWRITE1              "An error occurred while writing to file.  Operation canceled (1)"
+ERR_FILEWRITE2              "An error occurred while writing to file.  Operation canceled (2)"
+ERR_PALETTE                 "An error while generating a palette for the image.  Operation canceled"
+ERR_INVALIDIMAGE            "The image cannot be read because information is corrupt, missing, or is in unsupported form."
+ERR_NOFILENAME              "No filename was entered"
+ERR_INVALID_FILENAME        "Invalid file name"
+ERR_INVALID_PATH            "Invalid path name"
+ERR_IMAGE_TOO_WIDE          "Images that are more that 6800 pixels wide cannot be opened"
+ERR_OIC_IMAGE_TOO_WIDE      "Images that are more that 2000 pixels wide cannot be compressed"
+ERR_OIC_IMAGE_IS_LINES      "The image is not formatted correctly to use OIC compression.  Save first as COLORLAB 24-Bit format and then compress that image."
+ERR_MERGE_TOO_WIDE          "The merged image would be more than 20,480 pixels wide and cannot be merged."
+END
+#line 414
+/*  Generic Resources placed in the .exe file */
+#line 416
+quadpal8 DEFPALETTE LOADONCALL MOVEABLE DISCARDABLE quadpal8.pal
+quadpal4 DEFPALETTE LOADONCALL MOVEABLE DISCARDABLE quadpal4.pal
+quadpal3 DEFPALETTE LOADONCALL MOVEABLE DISCARDABLE quadpal3.pal
+#line 420
+smallh8  SMALLHIST  LOADONCALL MOVEABLE DISCARDABLE smallh8.hst
+smallh4  SMALLHIST  LOADONCALL MOVEABLE DISCARDABLE smallh4.hst
+smallh3  SMALLHIST  LOADONCALL MOVEABLE DISCARDABLE smallh3.hst
+#line 425
+/*  Gamma table "space" resource  */
+#line 427
+gamma    GAMMATABLE LOADONCALL MOVEABLE DISCARDABLE gamma.tab 
+#line 433
+#ifdef NEVER
+DOPTIONS DIALOG LOADONCALL MOVEABLE DISCARDABLE 220, 179, 169, 44
+CAPTION "Distributed Dither Mode"
+FONT 8, "Helv" 
+STYLE  WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | DS_SETFONT | DS_MODALFRAME | WS_POPUP
+BEGIN
+CONTROL "Fast", 200, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 20, 7, 39, 12
+CONTROL "High Quality", 201, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 20, 22, 60, 13
+CONTROL "&OK", IDOK, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 111, 12, 42, 14
+END
+#endif

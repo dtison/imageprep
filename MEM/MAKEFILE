@@ -1,0 +1,97 @@
+
+
+#      Makefile for creating tools.dll 
+#
+#      Last Modified:      02-21-90    D. Ison
+
+
+CPID=   $(CPIINC)
+INCD=   .
+
+!IFNDEF RELEASE
+OBJD=   .\obj
+PROG=   MEM
+!ELSE
+OBJD=   relobj
+PROG=   MEMDBG
+!ENDIF
+
+
+
+#      Flags to use with the C compiler and linker during the
+#      development of tools.dll.
+
+
+!IFNDEF RELEASE
+
+CFLAGS= -c -W3 -Alnw -G2sw -Zpe  -Fo$(OBJD)\ -I $(CPID)
+LFLAGS= /CO/NOE/NOD/PADCODE:256/AL:16
+
+CFLAGSD= -c -W3 -Alnw -G2sw -Od -Zpe -Zi -Fo$(OBJD)\ -I $(CPID)
+#CFLAGSD= -c -W3 -Alnw -G2sw -Od -Zpe -Zi  -I $(CPID)
+
+LFLAGSD= /CO /INC /NOE /NOD /PADCODE:512 /PADDATA:64 /AL:16
+
+!ELSE
+
+CFLAGS= -c -W3 -Alnw -G2sw -Os -Zp -Fo$(OBJD)\ -I $(CPID)
+LFLAGS= /NOE/NOD/PADCODE:256/AL:16
+
+!ENDIF
+
+
+
+#      Object file list.
+
+
+OBJ1=   $(OBJD)\libentry.obj    $(OBJD)\libmain.obj 
+
+
+#      Production rule for building library.
+
+
+!IFNDEF RELEASE
+
+mem.dll:     mem.def mem.lnk mem.res $(OBJ1)
+    ilink /E "link $(LFLAGSD) @$(PROG).lnk" $(PROG).dll
+    rc $(PROG).res $(PROG).dll 
+    implib $(PROG).lib $(PROG).def
+    xcopy mem.dll .. > nul
+    copy mem.lib ..
+!ENDIF
+
+
+#  Production rules for library compilation. 
+
+
+$(OBJD)\libentry.obj:   libentry.asm
+    masm -Zi libentry;
+    copy libentry.obj $(OBJD)
+    del libentry.obj
+
+$(OBJD)\libmain.obj:   libmain.c 
+    cl $(CFLAGSD) libmain.c
+
+
+
+#      Production rule for compiling resource script.
+
+
+$(PROG).res:  $(PROG).rc
+    rc -r  $(PROG).rc
+
+
+#      Production rule for creating link commands.
+
+
+$(PROG).lnk:     makefile
+    echo $(OBJD)\libentry     + > $(PROG).lnk
+    echo $(OBJD)\libmain        >>$(PROG).lnk
+    echo $(PROG).dll            >>$(PROG).lnk
+    echo nul                    >>$(PROG).lnk
+    echo win87em.lib          + >>$(PROG).lnk
+    echo mdllcew.lib          + >>$(PROG).lnk
+    echo cpi.lib              + >>$(PROG).lnk
+    echo libw.lib               >>$(PROG).lnk
+    echo mem.def              >>$(PROG).lnk
+

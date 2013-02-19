@@ -1,0 +1,25 @@
+LIBRARY     TOOLS   
+DESCRIPTION 'Tools Library (C) 1990, 1991 Computer Presentations Inc.  Version 01.00.016'
+EXETYPE     WINDOWS
+STUB        'WINSTUB.EXE'
+CODE        LOADONCALL MOVEABLE DISCARDABLE
+DATA        LOADONCALL MOVEABLE SINGLE
+HEAPSIZE    4096
+STACKSIZE   0
+
+SEGMENTS    LIBMAIN_TEXT    PRELOAD 
+
+EXPORTS     WEP                     @1 RESIDENTNAME
+            Abandon                 @2
+            FlushTools              @3 
+            SharpenCPI              @4
+            SharpDlgProc            @5
+            SmoothCPI               @6
+            SmoothDlgProc           @7
+            EnhanceEdgeCPI          @8
+            EdgeDlgProc             @9
+            RotateCPI               @10
+            ScaleCPI                @11 
+            ScaleDlgProc            @12
+            FlipCPI                 @13
+            MirrorCPI               @14

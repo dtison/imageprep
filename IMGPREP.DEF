@@ -1,0 +1,91 @@
+NAME          IMAGEPREP
+DESCRIPTION   'ImagePrep (C) 1990, 1991 Computer Presentations, Inc.  Version 04.00.028'
+EXETYPE       WINDOWS
+STUB          'WINSTUB.EXE'
+CODE          LOADONCALL MOVEABLE DISCARDABLE
+DATA          PRELOAD MOVEABLE MULTIPLE 
+HEAPSIZE      8192
+STACKSIZE     16284
+SEGMENTS      _TEXT             LOADONCALL MOVEABLE DISCARDABLE
+              IMGPREP_TEXT      PRELOAD MOVEABLE NONDICARDABLE
+
+IMPORTS
+
+        RegisterCapApp          = capture.2
+        UnRegisterCapApp        = capture.3
+        SetCaptureOn            = capture.12
+        SetCaptureFileType      = capture.13
+        SetCaptureType          = capture.14
+        ToggleHide              = capture.36
+        ToggleCapToClipboard    = capture.37
+        ToggleNameCapFile       = capture.38
+        DoSetHot                = capture.16  
+
+
+EXPORTS
+              IPWndProc          @1     
+              DisplayWndProc     @2     
+              AboutDlgProc       @3  
+              ProcSpecDlgProc    @4
+              CPIRdConvertData   @5
+              CPIWrConvertData   @6
+              CPIReadHeader      @7
+              CPIInitHeader      @8
+              CPIFixupHeader     @9
+              TIFRdConvertData   @10
+              TIFWrConvertData   @11
+              TIFReadHeader      @12
+              TIFInitHeader      @13
+              TIFFixupHeader     @14
+              TGARdConvertData   @15
+              TGAWrConvertData   @16
+              TGAReadHeader      @17
+              TGAInitHeader      @18
+              TGAFixupHeader     @19
+              GIFRdConvertData   @20
+              GIFWrConvertData   @21
+              GIFReadHeader      @22
+              GIFInitHeader      @23
+              GIFFixupHeader     @24
+              PCXRdConvertData   @25
+              PCXWrConvertData   @26
+              PCXReadHeader      @27
+              PCXInitHeader      @28
+              PCXFixupHeader     @29
+              DIBRdConvertData   @30
+              DIBWrConvertData   @31
+              DIBReadHeader      @32
+              DIBInitHeader      @33
+              DIBFixupHeader     @34
+              EPSWrConvertData   @35
+              EPSInitHeader      @36
+              EPSFixupHeader     @37
+              WMFWrConvertData   @38
+              WMFInitHeader      @39
+              WMFFixupHeader     @40
+              DVARdConvertData   @41
+              DVAReadHeader      @42
+              DVAWrConvertData   @43
+              DVAInitHeader      @44
+              DVAFixupHeader     @45
+              Format_8To24       @46
+              DitherBayer_A      @47
+              UniformQuant_A     @48
+              QuantColorReduced  @49
+              QuantFSDither      @50
+              GraySum            @51
+              GrayToBW           @52
+              UniformQuant8_A    @53
+              DitherGrayBayer    @54
+              DitherGrayFS       @55
+              ShiftGrayLevels    @56
+              SaveReportProc     @57
+              CompDlg            @58
+              OpenDlgProc        @59
+              SaveDlgProc        @60
+              InfoDlgProc        @61
+              Abandon            @62
+              OPRDlgProc         @63
+              OICInfoDlg         @64
+              MergeDlgProc       @65
+              PrefDlgProc        @66

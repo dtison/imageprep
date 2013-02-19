@@ -1,0 +1,31 @@
+#include "windows.h"
+#include "resource.h"
+SAVEOPS DIALOG LOADONCALL MOVEABLE DISCARDABLE 167, 60, 127, 161
+CAPTION "File Format Save Options"
+FONT 8, "Helv" 
+STYLE  WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_VISIBLE | DS_SETFONT | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "RGB", 110, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 8, 2, 54, 130
+    CONTROL "Colormap", 500, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 64, 2, 55, 130
+    CONTROL "&Ok", IDOK, "button", BS_DEFPUSHBUTTON | WS_TABSTOP | WS_CHILD, 50, 140, 42, 14
+    CONTROL "CPI", CPI24, "static", SS_LEFT | WS_CHILD, 11, 17, 41, 10
+    CONTROL "TIFF", TIF24, "static", SS_LEFT | WS_CHILD, 11, 30, 41, 10
+    CONTROL "EPS", EPS24, "static", SS_LEFT | WS_CHILD, 11, 44, 41, 10
+    CONTROL "Targa-24", TGA24, "static", SS_LEFT | WS_CHILD, 11, 58, 41, 10
+    CONTROL "Targa-16", TGA16, "static", SS_LEFT | WS_CHILD, 11, 71, 41, 10
+    CONTROL "PM Bitmap", PMDIB24, "static", SS_LEFT | WS_CHILD, 11, 86, 46, 10
+    CONTROL "Win Bitmap", WNDIB24, "static", SS_LEFT | WS_CHILD, 11, 100, 46, 10
+    CONTROL "CPI", CPI, "static", SS_LEFT | WS_CHILD, 68, 17, 33, 9
+    CONTROL "TIFF", TIF, "static", SS_LEFT | WS_CHILD, 68, 30, 33, 9
+    CONTROL "Targa-M8", TGA, "static", SS_LEFT | WS_CHILD, 68, 44, 49, 9
+    CONTROL "PCX", PCX, "static", SS_LEFT | WS_CHILD, 68, 58, 33, 9
+    CONTROL "GIF", GIF, "static", SS_LEFT | WS_CHILD, 68, 71, 33, 9
+    CONTROL "PM Bitmap", PMDIB, "static", SS_LEFT | WS_CHILD, 68, 86, 48, 10
+    CONTROL "Win Bitmap", WNDIB, "static", SS_LEFT | WS_CHILD, 68, 100, 46, 10
+#ifndef DECIPHER
+    CONTROL "CPI OIC", OIC24, "static", SS_LEFT | WS_CHILD, 11, 116, 48, 10
+#endif
+    CONTROL "EPS", EPS, "static", SS_LEFT | WS_CHILD, 68, 116, 48, 10
+END
+
+

@@ -1,0 +1,23 @@
+
+
+Targa RLE read.
+
+Targa RLE save.  Modify state matrix for RLE M8, RLE 16, RLE 24, RLE 32.
+                 Put in code to do RLE for all these flavors.
+
+Metafile read.   Create reader code.  (Dennis)
+
+Metafile save.   Change state matrix to add new format.   Create write code (Dennis)
+
+Changes to menu that Chris has suggested involve changing source code.
+
+Adding dialog that Chris has designed.
+
+User-selectable extensions in open dialog.
+
+Putting a "smooth" option into the "Convert to Line Drawing" tool.
+
+Remember last saved format in save dialog.
+
+Remember last opened format in open dialog.
+

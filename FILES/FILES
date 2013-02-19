@@ -1,0 +1,137 @@
+ 
+#       Windows Image Prep 3.0 Make File
+#
+PROG          = IMGPREP
+OBJDIR        = .\obj
+INCLUDE       = .\include
+CC            = cl -nologo -c -W3 -AM -G2sw -Zpe -Fo$(OBJDIR)\$*.obj
+CFLAGS        = -Oas 
+CFLAGSD       = -Od -Zi -DDEBUG 
+CFLAGSO       = -Ocilgt
+CFLAGSO2      =                         # (Default optimizations only)
+ASM           = masm -W2 -Ml -Mx
+AFLAGS        =
+AFLAGSD       = -Zi
+LINK          = link /NOD/NOE/AL:16
+LFLAGS        = 
+LFLAGSD       = /CO/INC/PADCODE:256
+
+.c.obj:
+  $(CC) $(CFLAGS) $*.c
+
+
+#
+# File Formats
+#
+
+$(OBJDIR)\epsih.obj: epsih.c
+  $(CC) $(CFLAGSO) -NT EPS_TEXT $*.c
+
+$(OBJDIR)\epscolor.obj: epscolor.asm
+  $(ASM) $(AFLAGS) -DSEGNAME=EPS_TEXT $*.asm;
+  copy $*.obj $(OBJDIR)
+
+$(OBJDIR)\epsmono.obj: epsmono.asm
+  $(ASM) $(AFLAGS) -DSEGNAME=EPS_TEXT $*.asm;
+  copy $*.obj $(OBJDIR)
+
+$(OBJDIR)\epsgray.obj: epsgray.asm
+  $(ASM) $(AFLAGS) -DSEGNAME=EPS_TEXT $*.asm;
+  copy $*.obj $(OBJDIR)
+
+$(OBJDIR)\cpirdh.obj: cpirdh.c
+  $(CC) $(CFLAGS) -NT CPI_TEXT $*.c
+
+$(OBJDIR)\cpircd.obj: cpircd.c
+  $(CC) $(CFLAGSO) -NT CPI_TEXT $*.c
+#FLAGSO
+
+$(OBJDIR)\cpiih.obj: cpiih.c
+  $(CC) $(CFLAGSO) -NT CPI_TEXT $*.c
+#FLAGSO
+
+$(OBJDIR)\tifrdh.obj: tifrdh.c
+  $(CC) $(CFLAGS) -NT TIF_TEXT $*.c
+#CFLAGS
+
+$(OBJDIR)\tifrcd.obj: tifrcd.c
+  $(CC) $(CFLAGSO) -NT TIF_TEXT $*.c
+#FLAGSO
+
+$(OBJDIR)\tifih.obj: tifih.c
+  $(CC) $(CFLAGSO2) -NT TIF_TEXT $*.c
+#CFLAGSO2
+
+$(OBJDIR)\tg24to16.obj: tg24to16.asm
+  $(ASM) $(AFLAGSO) -DSEGNAME=TGA_TEXT $*.asm;
+  copy $*.obj $(OBJDIR)
+
+$(OBJDIR)\tgardh.obj: tgardh.c
+  $(CC) $(CFLAGS) -NT TGA_TEXT $*.c
+
+$(OBJDIR)\tgarcd.obj: tgarcd.c
+  $(CC) $(CFLAGS) -NT TGA_TEXT $*.c
+#FLAGSO
+
+$(OBJDIR)\tgaih.obj: tgaih.c
+  $(CC) $(CFLAGSO) -NT TGA_TEXT $*.c
+#FLAGSO
+
+$(OBJDIR)\enc_pcx.obj: enc_pcx.asm
+  $(ASM) $(AFLAGS) -DSEGNAME=PCX_TEXT $*.asm;
+  copy $*.obj $(OBJDIR)
+
+$(OBJDIR)\pcx2lin.obj: pcx2lin.asm
+  $(ASM) $(AFLAGS) -DSEGNAME=PCX_TEXT $*.asm;
+  copy $*.obj $(OBJDIR)
+  del  $*.obj 
+
+$(OBJDIR)\pcxrdh.obj: pcxrdh.c
+  $(CC) $(CFLAGS) -NT PCX_TEXT $*.c
+
+$(OBJDIR)\pcxrcd.obj: pcxrcd.c
+  $(CC) $(CFLAGSO) -NT PCX_TEXT $*.c
+
+$(OBJDIR)\pcxih.obj: pcxih.c
+  $(CC) $(CFLAGSO) -NT PCX_TEXT $*.c
+
+$(OBJDIR)\gifrdh.obj: gifrdh.c
+  $(CC) $(CFLAGS) -NT GIF_TEXT $*.c
+
+$(OBJDIR)\gifrcd.obj: gifrcd.c
+  $(CC) $(CFLAGSO) -NT GIF_TEXT $*.c
+
+$(OBJDIR)\gifih.obj: gifih.c
+  $(CC) $(CFLAGSO) -NT GIF_TEXT $*.c
+
+$(OBJDIR)\dibrdh.obj: dibrdh.c
+  $(CC) $(CFLAGS) -NT DIB_TEXT  $*.c
+
+$(OBJDIR)\dibrcd.obj: dibrcd.c
+  $(CC) $(CFLAGSO) -NT DIB_TEXT $*.c
+
+$(OBJDIR)\dibih.obj: dibih.c
+  $(CC) $(CFLAGSO) -NT DIB_TEXT $*.c
+
+$(OBJDIR)\wmfih.obj: wmfih.c
+  $(CC) $(CFLAGS) -NT WMF_TEXT $*.c
+
+$(OBJDIR)\dvardh.obj: dvardh.c
+  $(CC) $(CFLAGS) -NT DVA_TEXT $*.c
+
+$(OBJDIR)\dvarcd.obj: dvarcd.c
+  $(CC) $(CFLAGSO) -NT DVA_TEXT $*.c
+#FLAGSO
+
+$(OBJDIR)\dvaih.obj: dvaih.c
+  $(CC) $(CFLAGSO) -NT DVA_TEXT $*.c
+#FLAGSO
+
+
+# "Format Test" modules...
+
+
+$(OBJDIR)\testfmts.obj: testfmts.c
+  $(CC) $(CFLAGS)  -NT OPEN_TEXT $*.c
+
+

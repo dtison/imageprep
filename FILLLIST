@@ -1,0 +1,61 @@
+/****************************************************************************
+ *									    *
+ *  FUNCTION   : static char * NEAR FillListBox (hDlg,pFile)		    *
+ *									    *
+ *  PURPOSE    : Fill list box with filenames that match specifications, and*
+ *		 fills the static field with the path name.		    *
+ *									    *
+ *  RETURNS    : A pointer to the pathname.							      *
+ *									    *
+ ****************************************************************************/
+static char * NEAR FillListBox (hDlg,pFile)
+
+HWND  hDlg;
+char  *pFile;  /* [path]{list of file wild cards, separated by ';'} */
+{
+    char  ach[20];
+    char  *pch;
+    char  *pDir;   /* Directory name or path */
+
+    pch  = pFile;
+    pDir = ach;
+
+    while (*pch && *pch != ';')
+	pch++;
+    while ((pch > pFile) && (*pch != '/') && (*pch != '\\'))
+	pch--;
+    if (pch > pFile) {
+       *pch = 0;
+       lstrcpy (pDir, pFile);
+       pFile = pch + 1;
+    }
+    else {
+       lstrcpy (pDir,".");
+    }
+
+    DlgDirList (hDlg, pDir, DLGOPEN_DIR_LISTBOX, DLGOPEN_PATH,ATTRDIRLIST);
+    SendDlgItemMessage (hDlg, DLGOPEN_FILE_LISTBOX, LB_RESETCONTENT, 0, 0L);
+    SendDlgItemMessage (hDlg, DLGOPEN_FILE_LISTBOX, WM_SETREDRAW, FALSE, 0L);
+    pDir = pFile;	     /* save pFile to return */
+    while (*pFile) {
+	pch = ach;
+	while (*pFile==' ')
+	    pFile++;
+	while (*pFile && *pFile != ';')
+	    *pch++ = *pFile++;
+	*pch = 0;
+	if (*pFile)
+	    pFile++;
+	SendDlgItemMessage (hDlg,
+			    DLGOPEN_FILE_LISTBOX,
+			    LB_DIR,ATTRFILELIST,
+			    (LONG)(LPSTR)ach);
+    }
+    SendDlgItemMessage (hDlg, DLGOPEN_FILE_LISTBOX, WM_SETREDRAW, TRUE, 0L);
+    InvalidateRect (GetDlgItem (hDlg, DLGOPEN_FILE_LISTBOX), NULL, TRUE);
+
+    return pDir;
+}
+
+
+

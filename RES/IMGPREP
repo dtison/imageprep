@@ -1,0 +1,16 @@
+#
+#       Windows ImgPrep Resource Make File
+#
+
+
+#-----------------------------------------------------------
+#
+#	Assembler Routines and Modules
+#
+#----------------------------------------------------------
+
+imgprep.res: imgprep.rc 
+  rc -r imgprep.rc
+
+
+

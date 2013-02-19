@@ -1,0 +1,341 @@
+
+Microsoft (R) Program Maintenance Utility  Version 4.07
+Copyright (C) Microsoft Corp 1984-1988.  All rights reserved.
+
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\epsih.obj -Od -Zi -DDEBUG -NT EPS_TEXT epsih.c
+epsih.c
+
+  masm -W2 -Ml -Mx -Zi -DSEGNAME=EPS_TEXT epscolor.asm;
+Microsoft (R) Macro Assembler Version 5.10 
+Copyright (C) Microsoft Corp 1981, 1988.  All rights reserved.
+
+cMacros Version 5.20 - Copyright (c) Microsoft Corp. 1984-1988 
+Windows support 
+
+  48680 + 170639 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
+  red epscolor.obj .\obj
+REDirect (C) 1985, Dickinson Associates Inc.
+EPSCOLOR.OBJ . . REDirected to . . .\OBJ\EPSCOLOR.OBJ
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\testcpi.obj -Od -Zi -DDEBUG  -NT OPEN_TEXT testcpi.c
+testcpi.c
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\cpirdh.obj -Od -Zi -DDEBUG cpirdh.c
+cpirdh.c
+cpirdh.c(86) : warning C4016: 'ReadCPiFileSpec' : no function return type, using int as default
+cpirdh.c(86) : warning C4071: 'ReadCPiFileSpec' : no function prototype given
+cpirdh.c(94) : warning C4016: 'ReadCPiImageSpec' : no function return type, using int as default
+cpirdh.c(94) : warning C4071: 'ReadCPiImageSpec' : no function prototype given
+cpirdh.c(164) : warning C4101: 'lpCPiFixup' : unreferenced local variable
+cpirdh.c(164) : warning C4101: 'lpbmiHeader' : unreferenced local variable
+cpirdh.c(199) : warning C4101: 'TmpBuffer' : unreferenced local variable
+cpirdh.c(275) : warning C4135: conversion between different integral types
+cpirdh.c(276) : warning C4135: conversion between different integral types
+cpirdh.c(277) : warning C4135: conversion between different integral types
+cpirdh.c(287) : warning C4016: 'tell' : no function return type, using int as default
+cpirdh.c(287) : warning C4071: 'tell' : no function prototype given
+cpirdh.c(292) : warning C4016: 'SetState' : no function return type, using int as default
+cpirdh.c(292) : warning C4071: 'SetState' : no function prototype given
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\cpircd.obj -Od -Zi -DDEBUG cpircd.c
+cpircd.c
+cpircd.c(98) : warning C4016: 'LinesToTriplets' : no function return type, using int as default
+cpircd.c(98) : warning C4071: 'LinesToTriplets' : no function prototype given
+cpircd.c(106) : warning C4016: 'RGBToBGR' : no function return type, using int as default
+cpircd.c(106) : warning C4071: 'RGBToBGR' : no function prototype given
+cpircd.c(116) : warning C4016: 'PadScanlines' : no function return type, using int as default
+cpircd.c(116) : warning C4071: 'PadScanlines' : no function prototype given
+cpircd.c(134) : warning C4101: 'lpTmpPtr' : unreferenced local variable
+cpircd.c(134) : warning C4101: 'dwx' : unreferenced local variable
+cpircd.c(134) : warning C4101: 'hBitmap' : unreferenced local variable
+cpircd.c(134) : warning C4101: 'i' : unreferenced local variable
+cpircd.c(134) : warning C4101: 'lpbmiHeader' : unreferenced local variable
+cpircd.c(134) : warning C4101: 'Bitmap' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\cpiih.obj -Od -Zi -DDEBUG cpiih.c
+cpiih.c
+cpiih.c(153) : warning C4135: conversion between different integral types
+cpiih.c(154) : warning C4135: conversion between different integral types
+cpiih.c(155) : warning C4135: conversion between different integral types
+cpiih.c(202) : warning C4101: 'lpIBuf' : unreferenced local variable
+cpiih.c(202) : warning C4101: 'SavePtr' : unreferenced local variable
+cpiih.c(202) : warning C4101: 'bytes' : unreferenced local variable
+cpiih.c(202) : warning C4101: 'lpTBuf' : unreferenced local variable
+cpiih.c(286) : warning C4101: 'bytes' : unreferenced local variable
+cpiih.c(339) : warning C4101: 'lpIFileInfo' : unreferenced local variable
+cpiih.c(339) : warning C4101: 'lpIBuf' : unreferenced local variable
+cpiih.c(339) : warning C4101: 'lpEBitmapInfo' : unreferenced local variable
+cpiih.c(339) : warning C4101: 'lpEFileInfo' : unreferenced local variable
+cpiih.c(339) : warning C4101: 'lpTBuf' : unreferenced local variable
+cpiih.c(339) : warning C4101: 'lpIBitmapInfo' : unreferenced local variable
+cpiih.c(430) : warning C4098: void function returning a value
+cpiih.c(431) : warning C4101: 'lptr' : unreferenced local variable
+cpiih.c(431) : warning C4101: 'ptr' : unreferenced local variable
+cpiih.c(431) : warning C4101: 'bytes' : unreferenced local variable
+cpiih.c(431) : warning C4101: 'i' : unreferenced local variable
+cpiih.c(431) : warning C4101: 'num_written' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\testtif.obj -Od -Zi -DDEBUG  -NT OPEN_TEXT testtif.c
+testtif.c
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\tifrdh.obj -Od -Zi -DDEBUG tifrdh.c
+tifrdh.c
+tifrdh.c(108) : warning C4101: 'wBytesPerStrip' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'TmpPtr' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'wRowCount' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'i' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'wBytesPerLastStrip' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'wRowsPerStrip' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'lpTIFFixup' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'wNumStrips' : unreferenced local variable
+tifrdh.c(108) : warning C4101: 'wRowsPerLastStrip' : unreferenced local variable
+tifrdh.c(227) : warning C4018: '<' : signed/unsigned mismatch
+tifrdh.c(294) : warning C4016: 'SetState' : no function return type, using int as default
+tifrdh.c(294) : warning C4071: 'SetState' : no function prototype given
+tifrdh.c(389) : warning C4018: '<' : signed/unsigned mismatch
+tifrdh.c(412) : warning C4101: 'wBytesPerPixel' : unreferenced local variable
+tifrdh.c(509) : warning C4018: '!=' : signed/unsigned mismatch
+tifrdh.c(680) : warning C4101: 'wNumStrips' : unreferenced local variable
+tifrdh.c(680) : warning C4101: 'dwFirstStripOffset' : unreferenced local variable
+tifrdh.c(812) : warning C4101: 'wNumStrips' : unreferenced local variable
+tifrdh.c(879) : warning C4101: 'wNumStrips' : unreferenced local variable
+tifrdh.c(978) : warning C4101: 'wSize' : unreferenced local variable
+tifrdh.c(978) : warning C4101: 'wNumStrips' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\tifrcd.obj -Od -Zi -DDEBUG tifrcd.c
+tifrcd.c
+tifrcd.c(106) : warning C4135: conversion between different integral types
+tifrcd.c(125) : warning C4018: '!=' : signed/unsigned mismatch
+tifrcd.c(138) : warning C4016: 'RGBToBGR' : no function return type, using int as default
+tifrcd.c(138) : warning C4071: 'RGBToBGR' : no function prototype given
+tifrcd.c(149) : warning C4016: 'PadScanlines' : no function return type, using int as default
+tifrcd.c(149) : warning C4071: 'PadScanlines' : no function prototype given
+tifrcd.c(177) : warning C4101: 'hBitmap' : unreferenced local variable
+tifrcd.c(177) : warning C4101: 'Bitmap' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\tifih.obj -Od -Zi -DDEBUG tifih.c
+tifih.c
+tifih.c(176) : warning C4016: 'tell' : no function return type, using int as default
+tifih.c(176) : warning C4071: 'tell' : no function prototype given
+tifih.c(183) : warning C4016: 'lmemset' : no function return type, using int as default
+tifih.c(183) : warning C4071: 'lmemset' : no function prototype given
+tifih.c(363) : warning C4018: '<' : signed/unsigned mismatch
+tifih.c(391) : warning C4018: '<' : signed/unsigned mismatch
+tifih.c(400) : warning C4018: '<' : signed/unsigned mismatch
+tifih.c(402) : warning C4018: '<' : signed/unsigned mismatch
+tifih.c(474) : warning C4101: 'lpbmiHeader' : unreferenced local variable
+tifih.c(535) : warning C4016: 'lmemcpy' : no function return type, using int as default
+tifih.c(535) : warning C4071: 'lmemcpy' : no function prototype given
+tifih.c(558) : warning C4016: 'RGBToBGR' : no function return type, using int as default
+tifih.c(558) : warning C4071: 'RGBToBGR' : no function prototype given
+tifih.c(568) : warning C4016: 'cm2bilvl' : no function return type, using int as default
+tifih.c(568) : warning C4071: 'cm2bilvl' : no function prototype given
+tifih.c(600) : warning C4101: 'wTmp' : unreferenced local variable
+tifih.c(858) : warning C4101: 'lpIFileInfo' : unreferenced local variable
+tifih.c(858) : warning C4101: 'lpEBitmapInfo' : unreferenced local variable
+tifih.c(858) : warning C4101: 'lpIBitmapInfo' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\testtga.obj -Od -Zi -DDEBUG  -NT OPEN_TEXT testtga.c
+testtga.c
+
+  masm -W2 -Ml -Mx -Zi -DSEGNAME=TGA_TEXT tg24to16.asm;
+Microsoft (R) Macro Assembler Version 5.10 
+Copyright (C) Microsoft Corp 1981, 1988.  All rights reserved.
+
+
+  49032 + 225586 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
+  red tg24to16.obj .\obj
+REDirect (C) 1985, Dickinson Associates Inc.
+TG24TO16.OBJ . . REDirected to . . .\OBJ\TG24TO16.OBJ
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\tgardh.obj -Od -Zi -DDEBUG tgardh.c
+tgardh.c
+tgardh.c(176) : warning C4101: 'dwSeekVal' : unreferenced local variable
+tgardh.c(176) : warning C4101: 'TmpPtr' : unreferenced local variable
+tgardh.c(176) : warning C4101: 'i' : unreferenced local variable
+tgardh.c(253) : warning C4016: 'SetState' : no function return type, using int as default
+tgardh.c(253) : warning C4071: 'SetState' : no function prototype given
+tgardh.c(279) : warning C4018: '!=' : signed/unsigned mismatch
+tgardh.c(307) : warning C4101: 'wBytesPerPlane' : unreferenced local variable
+tgardh.c(307) : warning C4101: 'wBytes' : unreferenced local variable
+tgardh.c(353) : warning C4018: '!=' : signed/unsigned mismatch
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\tgarcd.obj -Od -Zi -DDEBUG tgarcd.c
+tgarcd.c
+tgarcd.c(91) : warning C4018: '!=' : signed/unsigned mismatch
+tgarcd.c(122) : warning C4016: 'PadScanlines' : no function return type, using int as default
+tgarcd.c(122) : warning C4071: 'PadScanlines' : no function prototype given
+tgarcd.c(137) : warning C4016: 'InvertScanlines' : no function return type, using int as default
+tgarcd.c(137) : warning C4071: 'InvertScanlines' : no function prototype given
+tgarcd.c(158) : warning C4101: 'dwx' : unreferenced local variable
+tgarcd.c(158) : warning C4101: 'hBitmap' : unreferenced local variable
+tgarcd.c(158) : warning C4101: 'dwTmp' : unreferenced local variable
+tgarcd.c(158) : warning C4101: 'Bitmap' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\tgaih.obj -Od -Zi -DDEBUG tgaih.c
+tgaih.c
+tgaih.c(205) : warning C4016: 'tell' : no function return type, using int as default
+tgaih.c(205) : warning C4071: 'tell' : no function prototype given
+tgaih.c(237) : warning C4101: 'lpTBuf' : unreferenced local variable
+tgaih.c(356) : warning C4101: 'wTmp' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'TgaHdrPtr' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'int_ptr' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'lpIFileInfo' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'lpPtr' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'lpIBuf' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'bytes' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'i' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'lpEBitmapInfo' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'lpTBuf' : unreferenced local variable
+tgaih.c(409) : warning C4101: 'lpIBitmapInfo' : unreferenced local variable
+tgaih.c(531) : warning C4135: conversion between different integral types
+tgaih.c(536) : warning C4018: '<' : signed/unsigned mismatch
+tgaih.c(564) : warning C4101: 'bytes' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\testpcx.obj -Od -Zi -DDEBUG  -NT OPEN_TEXT testpcx.c
+testpcx.c
+
+  masm -W2 -Ml -Mx -Zi -DSEGNAME=PCX_TEXT enc_pcx.asm;
+Microsoft (R) Macro Assembler Version 5.10 
+Copyright (C) Microsoft Corp 1981, 1988.  All rights reserved.
+
+cMacros Version 5.20 - Copyright (c) Microsoft Corp. 1984-1988 
+Windows support 
+
+  48538 + 163325 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
+  red enc_pcx.obj .\obj
+REDirect (C) 1985, Dickinson Associates Inc.
+ENC_PCX.OBJ . . REDirected to . . .\OBJ\ENC_PCX.OBJ
+
+  masm -W2 -Ml -Mx -Zi -DSEGNAME=PCX_TEXT pcx2lin.asm;
+Microsoft (R) Macro Assembler Version 5.10 
+Copyright (C) Microsoft Corp 1981, 1988.  All rights reserved.
+
+cMacros Version 5.20 - Copyright (c) Microsoft Corp. 1984-1988 
+Windows support 
+
+  48532 + 163331 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
+  copy pcx2lin.obj .\obj
+        1 File(s) copied
+  del  pcx2lin.obj 
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\pcxrdh.obj -Od -Zi -DDEBUG pcxrdh.c
+pcxrdh.c
+pcxrdh.c(139) : warning C4016: 'SetState' : no function return type, using int as default
+pcxrdh.c(139) : warning C4071: 'SetState' : no function prototype given
+pcxrdh.c(144) : warning C4101: 'bytes' : unreferenced local variable
+pcxrdh.c(144) : warning C4101: 'TmpPtr' : unreferenced local variable
+pcxrdh.c(144) : warning C4101: 'i' : unreferenced local variable
+pcxrdh.c(249) : warning C4016: 'lmemset' : no function return type, using int as default
+pcxrdh.c(249) : warning C4071: 'lmemset' : no function prototype given
+pcxrdh.c(258) : warning C4101: 'wBytesPerPalEntry' : unreferenced local variable
+pcxrdh.c(258) : warning C4101: 'bytes' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\pcxrcd.obj -Od -Zi -DDEBUG pcxrcd.c
+pcxrcd.c
+pcxrcd.c(147) : warning C4101: 'wBytesProcessed' : unreferenced local variable
+pcxrcd.c(147) : warning C4101: 'bytes' : unreferenced local variable
+pcxrcd.c(147) : warning C4101: 'wBytesExpanded' : unreferenced local variable
+pcxrcd.c(147) : warning C4101: 'wUnProcessedBytes' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\pcxih.obj -Od -Zi -DDEBUG pcxih.c
+pcxih.c
+pcxih.c(148) : warning C4101: 'lpIBuf' : unreferenced local variable
+pcxih.c(148) : warning C4101: 'bytes' : unreferenced local variable
+pcxih.c(148) : warning C4101: 'lpEncodeBuf' : unreferenced local variable
+pcxih.c(148) : warning C4101: 'i' : unreferenced local variable
+pcxih.c(148) : warning C4101: 'lpEBitmapInfo' : unreferenced local variable
+pcxih.c(148) : warning C4101: 'lpPalette' : unreferenced local variable
+pcxih.c(148) : warning C4101: 'lpTBuf' : unreferenced local variable
+pcxih.c(148) : warning C4101: 'lpIBitmapInfo' : unreferenced local variable
+pcxih.c(220) : warning C4071: 'enc_pcx16' : no function prototype given
+pcxih.c(232) : warning C4101: 'bytes' : unreferenced local variable
+pcxih.c(232) : warning C4101: 'wTmp' : unreferenced local variable
+pcxih.c(289) : warning C4016: 'pcxbuf_flush' : no function return type, using int as default
+pcxih.c(289) : warning C4071: 'pcxbuf_flush' : no function prototype given
+pcxih.c(328) : warning C4101: 'int_ptr' : unreferenced local variable
+pcxih.c(328) : warning C4101: 'lpIFileInfo' : unreferenced local variable
+pcxih.c(328) : warning C4101: 'lpTBuf' : unreferenced local variable
+pcxih.c(328) : warning C4101: 'lpIBitmapInfo' : unreferenced local variable
+pcxih.c(357) : warning C4016: 'lmemset' : no function return type, using int as default
+pcxih.c(357) : warning C4071: 'lmemset' : no function prototype given
+pcxih.c(461) : warning C4016: 'lmemcpy' : no function return type, using int as default
+pcxih.c(461) : warning C4071: 'lmemcpy' : no function prototype given
+pcxih.c(475) : warning C4135: conversion between different integral types
+pcxih.c(499) : warning C4135: conversion between different integral types
+pcxih.c(523) : warning C4135: conversion between different integral types
+pcxih.c(547) : warning C4135: conversion between different integral types
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\testgif.obj -Od -Zi -DDEBUG  -NT OPEN_TEXT testgif.c
+testgif.c
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\gifrdh.obj -Od -Zi -DDEBUG gifrdh.c
+gifrdh.c
+gifrdh.c(156) : warning C4016: 'SetState' : no function return type, using int as default
+gifrdh.c(156) : warning C4071: 'SetState' : no function prototype given
+gifrdh.c(161) : warning C4101: 'TmpPtr' : unreferenced local variable
+gifrdh.c(161) : warning C4101: 'i' : unreferenced local variable
+gifrdh.c(161) : warning C4101: 'lpbmiHeader' : unreferenced local variable
+gifrdh.c(191) : warning C4101: 'TmpBuffer' : unreferenced local variable
+gifrdh.c(227) : warning C4016: 'lmemset' : no function return type, using int as default
+gifrdh.c(227) : warning C4071: 'lmemset' : no function prototype given
+gifrdh.c(236) : warning C4018: '<' : signed/unsigned mismatch
+gifrdh.c(184) : warning C4127: conditional expression is constant
+gifrdh.c(231) : warning C4127: conditional expression is constant
+gifrdh.c(248) : warning C4127: conditional expression is constant
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\gifrcd.obj -Od -Zi -DDEBUG gifrcd.c
+gifrcd.c
+gifrcd.c(113) : warning C4018: '!=' : signed/unsigned mismatch
+gifrcd.c(167) : warning C4101: 'lpTmpPtr' : unreferenced local variable
+gifrcd.c(167) : warning C4101: 'dwx' : unreferenced local variable
+gifrcd.c(167) : warning C4101: 'hBitmap' : unreferenced local variable
+gifrcd.c(167) : warning C4101: 'bytes' : unreferenced local variable
+gifrcd.c(167) : warning C4101: 'i' : unreferenced local variable
+gifrcd.c(167) : warning C4101: 'lpbmiHeader' : unreferenced local variable
+gifrcd.c(167) : warning C4101: 'Bitmap' : unreferenced local variable
+gifrcd.c(187) : warning C4101: 'bytes' : unreferenced local variable
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\gifih.obj -Od -Zi -DDEBUG gifih.c
+gifih.c
+gifih.c(170) : warning C4101: 'lpIBuf' : unreferenced local variable
+gifih.c(170) : warning C4101: 'lpTBuf' : unreferenced local variable
+gifih.c(276) : warning C4016: 'CompressLZW' : no function return type, using int as default
+gifih.c(276) : warning C4071: 'CompressLZW' : no function prototype given
+gifih.c(341) : warning C4101: 'lpIFileInfo' : unreferenced local variable
+gifih.c(341) : warning C4101: 'lpIBuf' : unreferenced local variable
+gifih.c(341) : warning C4101: 'bytes' : unreferenced local variable
+gifih.c(341) : warning C4101: 'lpEBitmapInfo' : unreferenced local variable
+gifih.c(341) : warning C4101: 'lpEFileInfo' : unreferenced local variable
+gifih.c(341) : warning C4101: 'lpTBuf' : unreferenced local variable
+gifih.c(341) : warning C4101: 'lpIBitmapInfo' : unreferenced local variable
+gifih.c(377) : warning C4101: 'wTmpVal' : unreferenced local variable
+gifih.c(408) : warning C4101: 'wTmpVal' : unreferenced local variable
+gifih.c(460) : warning C4016: 'lmemcpy' : no function return type, using int as default
+gifih.c(460) : warning C4071: 'lmemcpy' : no function prototype given
+gifih.c(404) : warning C4127: conditional expression is constant
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\testdib.obj -Od -Zi -DDEBUG  -NT OPEN_TEXT testdib.c
+testdib.c
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\dibrdh.obj -Od -Zi -DDEBUG dibrdh.c
+dibrdh.c
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\dibrcd.obj -Od -Zi -DDEBUG dibrcd.c
+dibrcd.c
+
+  cl -nologo -c -W3 -AM -G2sw -Zpe -Fo.\obj\dibih.obj -Od -Zi -DDEBUG dibih.c
+dibih.c

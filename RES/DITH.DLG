@@ -1,0 +1,29 @@
+#include "windows.h"
+#include "resource.h"
+DITH DIALOG LOADONCALL MOVEABLE DISCARDABLE 21, 34, 214, 116
+CAPTION "Dither Setup"
+FONT 8, "Helv"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_POPUP
+BEGIN
+    CONTROL "Floyd-Steinburg", 101, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 72, 26, 64, 16
+    CONTROL "Burke", 102, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 72, 40, 40, 12
+    CONTROL "Jarvis", 103, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 72, 52, 32, 12
+    CONTROL "Stucki", 104, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 72, 64, 46, 12
+    CONTROL "Stevenson", 105, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 72, 76, 45, 12
+    CONTROL "Filter", 106, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 68, 16, 70, 90
+    CONTROL "Fast", 107, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 72, 88, 37, 12
+    CONTROL "Error Distributed", 108, "static", SS_LEFT | WS_CHILD, 6, 4, 62, 8
+    CONTROL "Standard", 109, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 10, 20, 44, 12
+    CONTROL "Alternate", 110, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 10, 30, 44, 12
+    CONTROL "Blue Noise", 111, "static", SS_LEFT | WS_CHILD, 10, 47, 49, 10
+    CONTROL "", 112, "edit", ES_LEFT | WS_BORDER | WS_TABSTOP | WS_CHILD, 16, 60, 16, 20
+    CONTROL "Text", 113, "scrollbar", SBS_HORZ | WS_CHILD, 8, 88, 38, 8
+    CONTROL "Ordered", 114, "static", SS_LEFT | WS_CHILD, 154, 4, 32, 8
+    CONTROL "Rectangular", 115, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 152, 28, 50, 12
+    CONTROL "Hexagonal", 116, "button", BS_RADIOBUTTON | WS_TABSTOP | WS_CHILD, 152, 38, 48, 12
+    CONTROL "OK", 1, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 160, 72, 38, 14
+    CONTROL "Cancel", 2, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 160, 90, 38, 14
+    CONTROL "Filter", 119, "button", BS_GROUPBOX | WS_TABSTOP | WS_CHILD, 146, 18, 62, 36
+END
+
+

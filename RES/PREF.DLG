@@ -1,0 +1,14 @@
+PREF DIALOG LOADONCALL MOVEABLE DISCARDABLE 11, 29, 181, 87
+CAPTION "Preferences"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "Temp File Option   ", IDD_AUTO_CONVERT, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 6, 71, 80, 12
+    CONTROL "Save Defaults on Exit", IDD_SAVE_DEF, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 93, 71, 85, 12
+    CONTROL "Retain Process and Enhance Settings", IDD_RETAIN_SETTINGS, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 6, 56, 147, 12
+    CONTROL "Copy to Clipboard As", 103, "button", BS_GROUPBOX | WS_CHILD, 6, 4, 128, 49
+    CONTROL "DIB (Device Independent Bitmap)", IDD_DIB, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 12, 15, 118, 12
+    CONTROL "DDB (Device Dependent Bitmap)", IDD_DDB, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 12, 26, 119, 12
+    CONTROL "WMF (Windows Metafile)", IDD_WMF, "button", BS_CHECKBOX | WS_TABSTOP | WS_CHILD, 12, 37, 102, 12
+    CONTROL "&Ok", 1, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 140, 8, 38, 14
+    CONTROL "&Cancel", 2, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 140, 22, 38, 14
+END

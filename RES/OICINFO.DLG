@@ -1,0 +1,22 @@
+OICINFO DIALOG LOADONCALL MOVEABLE DISCARDABLE 101, 60, 140, 72
+CAPTION "OIC"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_POPUP
+BEGIN
+    CONTROL "Source:", 100, "static", SS_LEFT | WS_CHILD, 8, 26, 36, 10
+    CONTROL "Compressed :", 101, "static", SS_LEFT | WS_CHILD, 8, 35, 50, 10
+    CONTROL "Ratio:", 102, "static", SS_LEFT | WS_CHILD, 9, 60, 22, 12
+    CONTROL "Ok", 1, "button", BS_PUSHBUTTON | WS_TABSTOP | WS_CHILD, 90, 52, 38, 14
+    CONTROL "Image Size", 104, "button", BS_GROUPBOX | WS_CHILD, 4, 14, 131, 33
+    CONTROL "123456789012", 106, "static", SS_RIGHT | WS_CHILD, 57, 26, 45, 8
+    CONTROL "123456789012", 107, "static", SS_RIGHT | WS_CHILD, 58, 35, 45, 8
+    CONTROL "Text", 105, "static", SS_LEFT | WS_CHILD, 34, 4, 86, 8
+    CONTROL "Text", 108, "static", SS_LEFT | WS_CHILD, 34, 60, 48, 8
+    CONTROL "Image:", 110, "static", SS_LEFT | WS_CHILD, 8, 4, 23, 8
+    CONTROL "Level:", 111, "static", SS_LEFT | WS_CHILD, 9, 51, 22, 8
+    CONTROL "Text", 109, "static", SS_LEFT | WS_CHILD, 34, 51, 19, 10
+    CONTROL "bytes", 112, "static", SS_LEFT | WS_CHILD, 108, 26, 20, 8
+    CONTROL "bytes", 113, "static", SS_LEFT | WS_CHILD, 108, 35, 20, 8
+END
+
+
+

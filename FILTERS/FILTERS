@@ -1,0 +1,68 @@
+#
+
+#       Windows Image Filters  Make File
+#
+PROG    = FILTERS
+OBJDIR  = .\obj
+CC      = cl  -c -W3 -AM -G2sw -Zpe 
+CFLAGS  = -Oas -NT FILTERSLIB_TEXT
+CFLAGSD = -Od -Zi -Zd 
+CFLAGSO = -Ocilgt
+ASM     = masm -W2 
+AFLAGS  = -DSEGNAME=FILTERSLIB_TEXT
+AFLAGSD = -DSEGNAME=FILTERSLIB_TEXT -Zi
+LINK    = link /NOD/NOE/AL:16
+LFLAGS  = /MAP/INF
+LFLAGSD = /CO/INF/MAP/LI
+
+.asm.obj:
+  $(ASM) $(AFLAGS) $*;
+  lib $(PROG) -+ $*;
+
+.c.obj:
+  $(CC) $(CFLAGSO) $*.c
+  lib $(PROG) -+ $*;
+
+
+
+#----------------------------------------------------------
+#
+# Assembler files....
+#
+#----------------------------------------------------------
+
+
+fmt8to24.obj: fmt8to24.asm
+
+rgb2gray.obj: rgb2gray.asm
+
+shiftgra.obj: shiftgra.asm
+
+gray2bw.obj: gray2bw.asm
+
+dithfsg.obj: dithfsg.asm
+
+uniquant.obj: uniquant.asm
+
+uniqua16.obj: uniqua16.asm
+
+dithfsc.obj: dithfsc.asm
+
+dithbkc.obj: dithbkc.asm
+
+dithfac.obj: dithfac.asm
+
+dithjvc.obj: dithjvc.asm
+
+rendmath.obj: rendmath.asm
+
+quantopr.obj: quantopr.asm
+
+rgbfilt.obj: rgbfilt.asm
+
+dithbayr.obj: dithbayr.c   
+
+dithbg.obj:  dithbg.c
+
+dithfs.obj:  dithfs.c
+

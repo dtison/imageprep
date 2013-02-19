@@ -1,0 +1,202 @@
+//      for (i = 0; i < wScanWidth; i++)
+        {
+            if (i > 0)
+            {
+                nVals [0] = (BYTE) *(lpCurrPtr - wBytesPerPixel);
+                nVals [1] = (BYTE) *(lpCurrPtr + wBytesPerPixel);
+                nVals [2] = (BYTE) *(lpPrevPtr - wBytesPerPixel);
+                nVals [3] = (BYTE) *lpPrevPtr;
+                nVals [4] = (BYTE) *(lpPrevPtr + wBytesPerPixel);
+                nVals [5] = (BYTE) *(lpNextPtr - wBytesPerPixel);
+                nVals [6] = (BYTE) *lpNextPtr;
+                nVals [7] = (BYTE) *(lpNextPtr + wBytesPerPixel);
+                nVals [8] = (BYTE) *lpCurrPtr;
+            }
+            else
+            {
+                nVals [0] = (BYTE) *(lpCurrPtr                 );
+                nVals [1] = (BYTE) *(lpCurrPtr + wBytesPerPixel);
+                nVals [2] = (BYTE) *(lpPrevPtr                 );
+                nVals [3] = (BYTE) *lpPrevPtr;
+                nVals [4] = (BYTE) *(lpPrevPtr + wBytesPerPixel);
+                nVals [5] = (BYTE) *(lpNextPtr                 );
+                nVals [6] = (BYTE) *lpNextPtr;
+                nVals [7] = (BYTE) *(lpNextPtr + wBytesPerPixel);
+                nVals [8] = (BYTE) *lpCurrPtr;
+            }
+
+            nTmp = (BYTE) nVals [8];
+    
+            #ifdef QSORT
+            qsort (nVals, 9, 2, compare);
+            #else
+            {
+                int i, j;
+                int v;
+
+                for (i = 1; i < 9; i++)
+                {
+                
+                    v = nVals [i];
+                    j = i;
+                
+                    while (nVals [j - 1] > v && j > 0)
+                    {
+                
+                        nVals [j] = nVals [j - 1];
+                        j--;
+                
+                    }
+                    nVals [j] = v;
+                }
+
+            }
+            #endif
+
+            nTmp2 = nTmp - nVals [4];        // Difference between pixel and median
+            if (nTmp2 < 0)
+                nTmp2 *= -1;
+
+
+            if (nTmp2 > nLevel)
+                nTmp = (BYTE) nVals [4];
+
+            *lpDest++ = (BYTE) nTmp;
+
+//          *lpDest++ = (BYTE) nVals [4];
+    
+            lpCurrPtr++;
+            lpPrevPtr++;
+            lpNextPtr++;
+    
+            if (wBytesPerPixel == 1)
+                continue;
+    
+            if (i > 0)
+            {
+                nVals [0] = (BYTE) *(lpCurrPtr - 3);
+                nVals [1] = (BYTE) *(lpCurrPtr + 3);
+                nVals [2] = (BYTE) *(lpPrevPtr - 3);
+                nVals [3] = (BYTE) *lpPrevPtr;
+                nVals [4] = (BYTE) *(lpPrevPtr + 3);
+                nVals [5] = (BYTE) *(lpNextPtr - 3);
+                nVals [6] = (BYTE) *lpNextPtr;
+                nVals [7] = (BYTE) *(lpNextPtr + 3);
+                nVals [8] = (BYTE) *lpCurrPtr;
+            }
+            else
+            {
+                nVals [0] = (BYTE) *(lpCurrPtr                 );
+                nVals [1] = (BYTE) *(lpCurrPtr + 3);
+                nVals [2] = (BYTE) *(lpPrevPtr                 );
+                nVals [3] = (BYTE) *lpPrevPtr;
+                nVals [4] = (BYTE) *(lpPrevPtr + 3);
+                nVals [5] = (BYTE) *(lpNextPtr                 );
+                nVals [6] = (BYTE) *lpNextPtr;
+                nVals [7] = (BYTE) *(lpNextPtr + 3);
+                nVals [8] = (BYTE) *lpCurrPtr;
+            }
+    
+            nTmp = (BYTE) nVals [8];
+
+            #ifdef QSORT
+            qsort (nVals, 9, 2, compare);
+            #else
+            {
+                int i, j;
+                int v;
+
+                for (i = 1; i < 9; i++)
+                {
+                
+                    v = nVals [i];
+                    j = i;
+                
+                    while (nVals [j - 1] > v && j > 0)
+                    {
+                
+                        nVals [j] = nVals [j - 1];
+                        j--;
+                
+                    }
+                    nVals [j] = v;
+                }
+
+            }
+            #endif
+    
+            if (nTmp2 > nLevel)
+                nTmp = (BYTE) nVals [4];
+
+            *lpDest++ = (BYTE) nTmp;
+
+//          *lpDest++ = (BYTE) nVals [4];
+    
+            lpCurrPtr++;
+            lpPrevPtr++;
+            lpNextPtr++;
+    
+            if (i > 0)
+            {
+                nVals [0] = (BYTE) *(lpCurrPtr - 3);
+                nVals [1] = (BYTE) *(lpCurrPtr + 3);
+                nVals [2] = (BYTE) *(lpPrevPtr - 3);
+                nVals [3] = (BYTE) *lpPrevPtr;
+                nVals [4] = (BYTE) *(lpPrevPtr + 3);
+                nVals [5] = (BYTE) *(lpNextPtr - 3);
+                nVals [6] = (BYTE) *lpNextPtr;
+                nVals [7] = (BYTE) *(lpNextPtr + 3);
+                nVals [8] = (BYTE) *lpCurrPtr;
+            }
+            else
+            {
+                nVals [0] = (BYTE) *(lpCurrPtr                 );
+                nVals [1] = (BYTE) *(lpCurrPtr + 3);
+                nVals [2] = (BYTE) *(lpPrevPtr                 );
+                nVals [3] = (BYTE) *lpPrevPtr;
+                nVals [4] = (BYTE) *(lpPrevPtr + 3);
+                nVals [5] = (BYTE) *(lpNextPtr                 );
+                nVals [6] = (BYTE) *lpNextPtr;
+                nVals [7] = (BYTE) *(lpNextPtr + 3);
+                nVals [8] = (BYTE) *lpCurrPtr;
+            }
+
+            nTmp = (BYTE) nVals [8];
+    
+            #ifdef QSORT
+            qsort (nVals, 9, 2, compare);
+            #else
+            {
+                int i, j;
+                int v;
+
+                for (i = 1; i < 9; i++)
+                {
+                
+                    v = nVals [i];
+                    j = i;
+                
+                    while (nVals [j - 1] > v && j > 0)
+                    {
+                
+                        nVals [j] = nVals [j - 1];
+                        j--;
+                
+                    }
+                    nVals [j] = v;
+                }
+
+            }
+            #endif
+    
+            if (nTmp2 > nLevel)
+                nTmp = (BYTE) nVals [4];
+
+            *lpDest++ = (BYTE) nTmp;
+
+//          *lpDest++ = (BYTE) nVals [4];
+    
+            lpCurrPtr++;
+            lpPrevPtr++;
+            lpNextPtr++;
+ 
